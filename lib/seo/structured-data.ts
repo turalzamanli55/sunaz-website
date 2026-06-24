@@ -1,10 +1,33 @@
 import { COMPANY } from "@/lib/company";
+import { FACILITY_IDS, FACILITY_LOCATIONS } from "@/lib/facilities/catalog";
 import { getSiteUrl } from "@/lib/seo/metadata";
 import type { Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/types/dictionary";
 
 export function buildOrganizationSchema(locale: Locale, dict: Dictionary) {
   const base = getSiteUrl();
+
+  const hasPOS = FACILITY_IDS.map((id) => {
+    const location = FACILITY_LOCATIONS[id];
+    const item = dict.contact.facilityLocations.items.find((f) => f.id === id);
+
+    return {
+      "@type": "Place",
+      name: item?.name ?? COMPANY.legalName,
+      description: item?.description,
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: location.coordinates.lat,
+        longitude: location.coordinates.lng,
+      },
+      address: {
+        "@type": "PostalAddress",
+        addressCountry: "AZ",
+        streetAddress: item?.address.join(", ") ?? "",
+      },
+      hasMap: location.mapsUrl,
+    };
+  });
 
   return {
     "@context": "https://schema.org",
@@ -24,6 +47,7 @@ export function buildOrganizationSchema(locale: Locale, dict: Dictionary) {
       addressCountry: "AZ",
       streetAddress: COMPANY.headquarters.address,
     },
+    hasPOS,
     areaServed: ["AZ", "International"],
     knowsAbout: [
       "Poultry Processing",
@@ -38,13 +62,14 @@ export function buildOrganizationSchema(locale: Locale, dict: Dictionary) {
 export function buildLocalBusinessSchema(locale: Locale, dict: Dictionary) {
   const base = getSiteUrl();
   const facility = COMPANY.facilities.baku;
+  const bakuItem = dict.contact.facilityLocations.items.find((f) => f.id === "baku");
 
   return {
     "@context": "https://schema.org",
     "@type": "FoodEstablishment",
     "@id": `${base}/#localbusiness`,
-    name: `${COMPANY.legalName} — Baku Processing & Export Complex`,
-    description: dict.facilities.items[0]?.description,
+    name: bakuItem?.name ?? `${COMPANY.legalName} — Baku Processing & Export Complex`,
+    description: dict.contact.facilityLocations.items.find((f) => f.id === "baku")?.description,
     url: `${base}/${locale}#facilities`,
     telephone: COMPANY.phone,
     email: COMPANY.email,

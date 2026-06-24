@@ -68,11 +68,10 @@ export default function Footer({ locale, dict }: FooterProps) {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row">
-          <p className="text-sm text-white/50">
+        <div className="mt-12 border-t border-white/10 pt-8 text-center">
+          <p className="text-sm text-white/70">
             &copy; {year} SUNAZ Group LLC. {dict.footer.copyright}
           </p>
-          <p className="text-xs text-white/40">{dict.footer.tagline}</p>
         </div>
       </div>
     </footer>

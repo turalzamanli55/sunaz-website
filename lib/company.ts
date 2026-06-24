@@ -15,12 +15,14 @@ export const COMPANY = {
   facilities: {
     baku: {
       id: "baku-export-complex",
-      coordinates: { lat: 40.4312, lng: 49.8124 },
+      coordinates: { lat: 40.45825267213569, lng: 49.656541981308536 },
+      mapsUrl: "https://www.google.com/maps?q=40.45825267213569,49.656541981308536",
       mapsQuery: "Baku-Shamakhi Highway 14 km Binagadi Baku Azerbaijan",
     },
     lerik: {
       id: "lerik-slaughter-complex",
-      coordinates: { lat: 38.7736, lng: 48.4151 },
+      coordinates: { lat: 38.73181801394055, lng: 48.660307966463925 },
+      mapsUrl: "https://www.google.com/maps?q=38.73181801394055,48.660307966463925",
       mapsQuery: "Piran Village Lerik Azerbaijan",
     },
   },

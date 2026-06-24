@@ -38,9 +38,9 @@ export default async function HomePage({
         <ExportSection dict={dict} />
         <TrustedPartners dict={dict} />
         <Quality dict={dict} />
-        <Facilities locale={locale} dict={dict} />
         <ComplianceHomeSection locale={locale} dict={dict} />
         <Contact locale={locale} dict={dict} />
+        <Facilities dict={dict} />
       </main>
       <Footer locale={locale} dict={dict} />
     </>

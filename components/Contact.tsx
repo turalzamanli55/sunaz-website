@@ -18,8 +18,6 @@ interface ContactProps {
 export default function Contact({ locale, dict }: ContactProps) {
   const [state, formAction, pending] = useActionState(submitContactForm, initialState);
 
-  const mapsEmbedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(COMPANY.facilities.baku.mapsQuery)}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
-
   return (
     <section id="contact" className="bg-white py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -185,20 +183,6 @@ export default function Contact({ locale, dict }: ContactProps) {
               <WhatsAppIcon className="h-5 w-5" />
               {dict.contact.whatsappCta}
             </a>
-
-            <div className="overflow-hidden rounded-2xl border border-gray-100 shadow-sm">
-              <p className="bg-sunaz-green px-6 py-3 text-sm font-semibold text-white">
-                {dict.contact.mapTitle}
-              </p>
-              <iframe
-                title={dict.contact.mapTitle}
-                src={mapsEmbedUrl}
-                className="h-64 w-full border-0"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
-              />
-            </div>
           </div>
         </div>
       </div>

@@ -20,9 +20,6 @@ export interface FacilityItem {
   id: string;
   name: string;
   location: string[];
-  description: string;
-  highlights: string[];
-  stat?: { value: string; label: string };
 }
 
 export interface Dictionary {
@@ -97,6 +94,7 @@ export interface Dictionary {
     title: string;
     subtitle: string;
     viewGallery: string;
+    openInMaps: string;
     items: FacilityItem[];
   };
   visualTrust: {
@@ -189,6 +187,23 @@ export interface Dictionary {
     whatsappCta: string;
     exportInquiryCta: string;
     mapTitle: string;
+    facilityLocations: {
+      title: string;
+      networkTitle: string;
+      openInMaps: string;
+      addressLabel: string;
+      network: {
+        baku: { shortName: string; hectaresLabel: string; secondaryLabel: string };
+        lerik: { shortName: string; hectaresLabel: string; secondaryLabel: string };
+      };
+      items: Array<{
+        id: string;
+        name: string;
+        description: string;
+        address: string[];
+        specs: string[];
+      }>;
+    };
     form: {
       name: string;
       company: string;
