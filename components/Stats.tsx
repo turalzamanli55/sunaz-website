@@ -15,13 +15,13 @@ export default function Stats({ dict }: StatsProps) {
           title={dict.stats.title}
         />
 
-        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid grid-cols-2 gap-3 md:mt-16 md:gap-6 lg:grid-cols-4">
           {dict.stats.items.map((item) => (
             <div
               key={item.id}
-              className="group relative overflow-hidden rounded-2xl border border-gray-100 bg-white p-8 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-sunaz-gold/30 hover:shadow-xl hover:shadow-sunaz-green/5"
+              className="group relative flex aspect-square flex-col justify-center overflow-hidden rounded-2xl border border-gray-100 bg-white p-4 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-sunaz-gold/30 hover:shadow-xl hover:shadow-sunaz-green/5 md:aspect-auto md:p-8"
             >
-              <div className="font-display text-3xl font-semibold text-sunaz-green sm:text-4xl">
+              <div className="font-display text-2xl font-semibold text-sunaz-green md:text-3xl lg:text-4xl">
                 {item.animate && item.value !== null ? (
                   <AnimatedCounter
                     value={item.value}
@@ -35,7 +35,7 @@ export default function Stats({ dict }: StatsProps) {
                   </>
                 )}
               </div>
-              <p className="mt-3 text-sm font-medium leading-snug text-sunaz-muted">
+              <p className="mt-2 text-xs font-medium leading-snug text-sunaz-muted md:mt-3 md:text-sm">
                 {item.label}
               </p>
               <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-sunaz-gold transition-all duration-500 group-hover:w-full" />

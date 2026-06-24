@@ -12,6 +12,7 @@ export function getPrimaryNavLinks(locale: Locale, dict: Dictionary): NavLink[] 
     { label: dict.nav.products, href: `/${locale}/#products` },
     { label: dict.nav.export, href: `/${locale}/#export` },
     { label: dict.nav.facilities, href: `/${locale}/#facilities` },
+    { label: dict.nav.gallery, href: `/${locale}/gallery` },
     { label: dict.nav.complianceCenter, href: `/${locale}/certifications` },
     { label: dict.nav.contact, href: `/${locale}/#contact` },
   ];

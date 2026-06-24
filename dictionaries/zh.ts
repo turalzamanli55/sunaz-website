@@ -22,6 +22,7 @@ export const dictionary: Dictionary = {
     export: "出口",
     quality: "质量",
     facilities: "生产基地",
+    gallery: "图库",
     certificates: "认证",
     complianceCenter: "认证中心",
     contact: "联系我们",
@@ -96,6 +97,8 @@ export const dictionary: Dictionary = {
     title: "优质出口级产品系列",
     subtitle: "面向批发、零售及国际出口市场的全面禽肉产品组合。",
     viewAll: "了解更多",
+    viewAllProducts: "查看所有产品",
+    moreDetails: "了解更多",
     items: [
       { slug: "whole-chicken", name: "整鸡", description: "面向国内批发和零售分销的标准整鸡。" },
       { slug: "premium-whole-chicken", name: "优质整鸡", description: "肉质优良、外观精美的优质级整鸡。" },
@@ -149,6 +152,7 @@ export const dictionary: Dictionary = {
     eyebrow: "生产基地",
     title: "世界级加工基础设施",
     subtitle: "两大战略园区支撑国内供应及国际出口业务。",
+    viewGallery: "查看图库",
     items: [
       {
         id: "baku-export-complex",
@@ -190,6 +194,61 @@ export const dictionary: Dictionary = {
         ],
         stat: { value: "7,000/小时", label: "加工产能" },
       },
+    ],
+  },
+  visualTrust: {
+    eyebrow: "为何选择SUNAZ",
+    title: "国际买家为何选择SUNAZ",
+    items: [
+      { title: "现代化设施", description: "拥有5,000平方米以上生产面积和一体化出口基础设施的先进加工园区。" },
+      { title: "清真生产", description: "符合国际宗教和质量标准的认证清真屠宰与加工。" },
+      { title: "出口经验", description: "凭借文件和合规专业知识为国际分销商提供成熟的出口运营。" },
+      { title: "冷链物流", description: "冷藏仓储和温控物流，全程保持产品完整性。" },
+      { title: "质量控制", description: "每个生产阶段的多级检验、HACCP体系和实验室检测。" },
+      { title: "可靠供应", description: "每小时7,000只产能，支持稳定的批发和出口供应。" },
+    ],
+  },
+  partners: {
+    eyebrow: "全球合作",
+    title: "国际合作伙伴",
+    subtitle:
+      "SUNAZ与国际分销商和食品公司合作，定位为全球出口导向型禽肉企业。",
+    visitWebsite: "访问网站",
+    viewGallery: "查看图库",
+    items: [
+      { id: "atlasfood", name: "Atlas Food", description: "国际食品贸易与分销合作伙伴。" },
+      { id: "sulavco", name: "Sulavco", description: "国际禽肉及食品行业合作伙伴。" },
+    ],
+  },
+  facilityGallery: {
+    eyebrow: "设施画廊",
+    title: "我们的生产基地",
+    subtitle: "探索SUNAZ世界级加工、出口及屠宰综合园区。",
+    viewGallery: "查看完整画廊",
+    baku: { title: "巴库出口综合园区", stats: ["7公顷", "5,000平方米以上生产面积", "出口准备中心"] },
+    lerik: { title: "勒里克加工综合园区", stats: ["15公顷", "每小时7,000只"] },
+  },
+  gallery: {
+    page: {
+      meta: { title: "SUNAZ画廊 | 设施、生产与产品", description: "探索SUNAZ生产基地、加工线、冷藏仓储、物流及优质禽肉产品。" },
+      title: "SUNAZ画廊",
+      subtitle: "穿越我们的设施、生产运营和优质产品系列的视觉之旅。",
+      all: "全部",
+      categories: { facilities: "设施", production: "生产", "cold-storage": "冷藏仓储", logistics: "物流", products: "产品" },
+    },
+    items: [
+      { id: "baku-1", title: "巴库出口综合园区" },
+      { id: "baku-2", title: "巴库生产车间" },
+      { id: "baku-3", title: "出口准备中心" },
+      { id: "lerik-1", title: "勒里克加工综合园区" },
+      { id: "lerik-2", title: "屠宰设施" },
+      { id: "lerik-3", title: "初加工" },
+      { id: "hero-1", title: "工厂全景" },
+      { id: "hero-2", title: "加工工厂" },
+      { id: "hero-3", title: "加工生产线" },
+      { id: "hero-4", title: "冷藏仓储设施" },
+      { id: "logistics-baku-1", title: "物流中心" },
+      { id: "logistics-baku-2", title: "配送运营" },
     ],
   },
   certificates: {

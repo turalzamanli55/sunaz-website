@@ -22,6 +22,7 @@ export const dictionary: Dictionary = {
     export: "İhracat",
     quality: "Kalite",
     facilities: "Tesisler",
+    gallery: "Galeri",
     certificates: "Sertifikalar",
     complianceCenter: "Sertifikasyon",
     contact: "İletişim",
@@ -98,6 +99,8 @@ export const dictionary: Dictionary = {
     subtitle:
       "Toptan, perakende ve uluslararası ihracat pazarları için tasarlanmış kapsamlı kümes hayvanı portföyü.",
     viewAll: "İncele",
+    viewAllProducts: "Tüm Ürünler",
+    moreDetails: "Detaylar",
     items: [
       { slug: "whole-chicken", name: "Bütün Tavuk", description: "Yerel toptan ve perakende dağıtım için standart bütün tavuk." },
       { slug: "premium-whole-chicken", name: "Premium Bütün Tavuk", description: "Üstün et kalitesi ve sunum ile premium bütün tavuk." },
@@ -157,6 +160,7 @@ export const dictionary: Dictionary = {
     eyebrow: "Üretim Tesisleri",
     title: "Dünya Standartlarında İşleme Altyapısı",
     subtitle: "Yerel tedarik ve uluslararası ihracat operasyonlarını destekleyen iki stratejik kompleks.",
+    viewGallery: "Galeriyi Görüntüle",
     items: [
       {
         id: "baku-export-complex",
@@ -199,6 +203,61 @@ export const dictionary: Dictionary = {
         ],
         stat: { value: "7,000/saat", label: "İşleme Kapasitesi" },
       },
+    ],
+  },
+  visualTrust: {
+    eyebrow: "Neden SUNAZ",
+    title: "Uluslararası Alıcılar Neden SUNAZ'ı Seçiyor",
+    items: [
+      { title: "Modern Tesisler", description: "5.000+ m² üretim alanı ve entegre ihracat altyapısına sahip son teknoloji işleme kompleksleri." },
+      { title: "Helal Üretim", description: "Uluslararası dini ve kalite standartlarına uygun sertifikalı helal kesim ve işleme." },
+      { title: "İhracat Deneyimi", description: "Uluslararası distribütörlere belgelendirme ve uygunluk uzmanlığıyla hizmet veren kanıtlanmış ihracat operasyonları." },
+      { title: "Soğuk Zincir Lojistiği", description: "Ürün bütünlüğünü koruyan soğutmalı depolama ve sıcaklık kontrollü lojistik." },
+      { title: "Kalite Kontrolü", description: "Her üretim aşamasında çok aşamalı muayene, HACCP sistemleri ve laboratuvar testleri." },
+      { title: "Güvenilir Tedarik", description: "Saatte 7.000 tavuk kapasitesi ile tutarlı toptan ve ihracat tedarikini destekleyen yüksek hacimli üretim." },
+    ],
+  },
+  partners: {
+    eyebrow: "Küresel Ortaklıklar",
+    title: "Güvenilir Uluslararası İş Ortakları",
+    subtitle:
+      "SUNAZ uluslararası distribütörler ve gıda şirketleriyle iş birliği yaparak kendini küresel ihracat odaklı bir kümes hayvanı şirketi olarak konumlandırır.",
+    visitWebsite: "Web Sitesini Ziyaret Et",
+    viewGallery: "Galeriyi Görüntüle",
+    items: [
+      { id: "atlasfood", name: "Atlas Food", description: "Uluslararası gıda ticareti ve dağıtım ortağı." },
+      { id: "sulavco", name: "Sulavco", description: "Uluslararası kümes hayvanı ve gıda sektörü ortağı." },
+    ],
+  },
+  facilityGallery: {
+    eyebrow: "Tesis Galerisi",
+    title: "Üretim Tesislerimiz",
+    subtitle: "SUNAZ'ın dünya standartlarındaki işleme, ihracat ve kesim komplekslerini keşfedin.",
+    viewGallery: "Tam Galeriyi Görüntüle",
+    baku: { title: "Bakü İhracat Kompleksi", stats: ["7 hektar", "5.000+ m² üretim alanı", "İhracat hazırlık merkezi"] },
+    lerik: { title: "Lerik İşleme Kompleksi", stats: ["15 hektar", "Saatte 7.000 tavuk"] },
+  },
+  gallery: {
+    page: {
+      meta: { title: "SUNAZ Galeri | Tesisler, Üretim ve Ürünler", description: "SUNAZ üretim tesisleri, işleme hatları, soğuk depolama, lojistik ve premium kümes hayvanı ürünlerini keşfedin." },
+      title: "SUNAZ Galeri",
+      subtitle: "Tesislerimiz, üretim operasyonlarımız ve premium ürün yelpazemiz boyunca görsel bir yolculuk.",
+      all: "Tümü",
+      categories: { facilities: "Tesisler", production: "Üretim", "cold-storage": "Soğuk Depolama", logistics: "Lojistik", products: "Ürünler" },
+    },
+    items: [
+      { id: "baku-1", title: "Bakü İhracat Kompleksi" },
+      { id: "baku-2", title: "Bakü Üretim Alanı" },
+      { id: "baku-3", title: "İhracat Hazırlık Merkezi" },
+      { id: "lerik-1", title: "Lerik İşleme Kompleksi" },
+      { id: "lerik-2", title: "Kesim Tesisi" },
+      { id: "lerik-3", title: "Birincil İşleme" },
+      { id: "hero-1", title: "Fabrika Genel Görünüm" },
+      { id: "hero-2", title: "İşleme Tesisi" },
+      { id: "hero-3", title: "İşleme Hattı" },
+      { id: "hero-4", title: "Soğuk Depolama Tesisi" },
+      { id: "logistics-baku-1", title: "Lojistik Merkezi" },
+      { id: "logistics-baku-2", title: "Dağıtım Operasyonları" },
     ],
   },
   certificates: {

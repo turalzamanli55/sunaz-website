@@ -37,6 +37,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       },
     });
 
+    entries.push({
+      url: `${base}/${locale}/gallery`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+      alternates: {
+        languages: Object.fromEntries(
+          locales.map((l) => [
+            l === "zh" ? "zh-Hans" : l,
+            `${base}/${l}/gallery`,
+          ]),
+        ),
+      },
+    });
+
     for (const slug of PRODUCT_SLUGS) {
       entries.push({
         url: `${base}/${locale}/products/${slug}`,

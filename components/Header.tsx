@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import type { Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/types/dictionary";
 import { COMPANY } from "@/lib/company";
@@ -14,8 +15,15 @@ interface HeaderProps {
   dict: Dictionary;
 }
 
+function isLinkActive(pathname: string, href: string): boolean {
+  if (href.includes("#")) return false;
+  const path = href.split("#")[0];
+  return pathname === path || pathname.startsWith(`${path}/`);
+}
+
 export default function Header({ locale, dict }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
   const navLinks = getPrimaryNavLinks(locale, dict);
 
   useEffect(() => {
@@ -29,6 +37,22 @@ export default function Header({ locale, dict }: HeaderProps) {
     };
   }, [menuOpen]);
 
+  const linkClass = (href: string, mobile = false) => {
+    const active = isLinkActive(pathname, href);
+    if (mobile) {
+      return `rounded-xl px-4 py-3.5 text-[17px] font-normal tracking-wide transition-colors ${
+        active
+          ? "bg-sunaz-green/5 font-medium text-sunaz-green"
+          : "text-gray-800 hover:bg-black/[0.03] hover:text-sunaz-green"
+      }`;
+    }
+    return `group relative text-[13px] tracking-wide transition-colors duration-200 ${
+      active
+        ? "font-medium text-sunaz-green"
+        : "font-normal text-gray-600 hover:text-sunaz-green"
+    }`;
+  };
+
   return (
     <>
       <header className="fixed inset-x-0 top-0 z-50 border-b border-black/[0.06] bg-white/72 backdrop-blur-2xl supports-[backdrop-filter]:bg-white/65">
@@ -41,17 +65,17 @@ export default function Header({ locale, dict }: HeaderProps) {
           </Link>
 
           <nav
-            className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-9 lg:flex"
+            className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-7 xl:gap-8 lg:flex"
             aria-label="Main navigation"
           >
             {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="group relative text-[13px] font-normal tracking-wide text-gray-600 transition-colors duration-200 hover:text-sunaz-green"
-              >
+              <Link key={link.href} href={link.href} className={linkClass(link.href)}>
                 {link.label}
-                <span className="absolute -bottom-1 left-0 h-px w-0 bg-sunaz-green transition-all duration-300 ease-out group-hover:w-full" />
+                <span
+                  className={`absolute -bottom-1 left-0 h-px bg-sunaz-green transition-all duration-300 ease-out ${
+                    isLinkActive(pathname, link.href) ? "w-full" : "w-0 group-hover:w-full"
+                  }`}
+                />
               </Link>
             ))}
           </nav>
@@ -118,13 +142,13 @@ export default function Header({ locale, dict }: HeaderProps) {
             </button>
           </div>
 
-          <div className="flex flex-1 flex-col gap-1 overflow-y-auto px-4 py-6">
+          <div className="flex flex-1 flex-col gap-1 overflow-y-auto overflow-x-hidden px-4 py-6">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="rounded-xl px-4 py-3.5 text-[17px] font-normal tracking-wide text-gray-800 transition-colors active:bg-black/[0.04] hover:bg-black/[0.03] hover:text-sunaz-green"
+                className={linkClass(link.href, true)}
               >
                 {link.label}
               </Link>

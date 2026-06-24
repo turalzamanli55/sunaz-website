@@ -20,7 +20,7 @@ export default function ComplianceHomeSection({ locale, dict }: ComplianceHomeSe
         />
 
         <div className="mt-16">
-          <ComplianceCertificateGrid dict={dict} />
+          <ComplianceCertificateGrid dict={dict} mobileCarousel />
         </div>
 
         <div className="mt-12 text-center">

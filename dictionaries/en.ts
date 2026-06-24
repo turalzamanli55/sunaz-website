@@ -22,6 +22,7 @@ export const dictionary: Dictionary = {
     export: "Export",
     quality: "Quality",
     facilities: "Facilities",
+    gallery: "Gallery",
     certificates: "Certificates",
     complianceCenter: "Certifications",
     contact: "Contact",
@@ -98,6 +99,8 @@ export const dictionary: Dictionary = {
     subtitle:
       "Comprehensive poultry portfolio engineered for wholesale, retail and international export markets.",
     viewAll: "Explore",
+    viewAllProducts: "View All Products",
+    moreDetails: "Learn More",
     items: [
       { slug: "whole-chicken", name: "Whole Chicken", description: "Standard whole chicken for domestic wholesale and retail distribution." },
       { slug: "premium-whole-chicken", name: "Premium Whole Chicken", description: "Premium-grade whole chicken with superior meat quality and presentation." },
@@ -157,6 +160,7 @@ export const dictionary: Dictionary = {
     eyebrow: "Production Facilities",
     title: "World-Class Processing Infrastructure",
     subtitle: "Two strategic complexes powering domestic supply and international export operations.",
+    viewGallery: "View Gallery",
     items: [
       {
         id: "baku-export-complex",
@@ -199,6 +203,84 @@ export const dictionary: Dictionary = {
         ],
         stat: { value: "7,000/hr", label: "Processing Capacity" },
       },
+    ],
+  },
+  visualTrust: {
+    eyebrow: "Why SUNAZ",
+    title: "Why International Buyers Choose SUNAZ",
+    items: [
+      { title: "Modern Facilities", description: "State-of-the-art processing complexes with 5,000+ m² production space and integrated export infrastructure." },
+      { title: "Halal Production", description: "Certified halal slaughtering and processing meeting international religious and quality standards." },
+      { title: "Export Experience", description: "Proven export operations serving international distributors with documentation and compliance expertise." },
+      { title: "Cold Chain Logistics", description: "Refrigerated storage and temperature-controlled logistics maintaining product integrity." },
+      { title: "Quality Control", description: "Multi-stage inspection, HACCP systems and laboratory testing at every production phase." },
+      { title: "Reliable Supply", description: "High-volume capacity of 7,000 chickens per hour supporting consistent wholesale and export supply." },
+    ],
+  },
+  partners: {
+    eyebrow: "Global Partnerships",
+    title: "Trusted International Partners",
+    subtitle:
+      "SUNAZ cooperates with international distributors and food companies, positioning the company as a global export-oriented poultry corporation.",
+    visitWebsite: "Visit Website",
+    viewGallery: "View Gallery",
+    items: [
+      {
+        id: "atlasfood",
+        name: "Atlas Food",
+        description: "International food trading and distribution partner.",
+      },
+      {
+        id: "sulavco",
+        name: "Sulavco",
+        description: "International poultry and food sector partner.",
+      },
+    ],
+  },
+  facilityGallery: {
+    eyebrow: "Facility Gallery",
+    title: "Our Production Facilities",
+    subtitle: "Explore SUNAZ's world-class processing, export and slaughtering complexes.",
+    viewGallery: "View Full Gallery",
+    baku: {
+      title: "Baku Export Complex",
+      stats: ["7 hectares", "5,000+ m² production area", "Export preparation center"],
+    },
+    lerik: {
+      title: "Lerik Processing Complex",
+      stats: ["15 hectares", "7,000 chickens per hour"],
+    },
+  },
+  gallery: {
+    page: {
+      meta: {
+        title: "SUNAZ Gallery | Facilities, Production & Products",
+        description: "Explore SUNAZ production facilities, processing lines, cold storage, logistics and premium poultry products.",
+      },
+      title: "SUNAZ Gallery",
+      subtitle: "A visual journey through our facilities, production operations and premium product range.",
+      all: "All",
+      categories: {
+        facilities: "Facilities",
+        production: "Production",
+        "cold-storage": "Cold Storage",
+        logistics: "Logistics",
+        products: "Products",
+      },
+    },
+    items: [
+      { id: "baku-1", title: "Baku Export Complex" },
+      { id: "baku-2", title: "Baku Production Floor" },
+      { id: "baku-3", title: "Export Preparation Center" },
+      { id: "lerik-1", title: "Lerik Processing Complex" },
+      { id: "lerik-2", title: "Slaughtering Facility" },
+      { id: "lerik-3", title: "Primary Processing" },
+      { id: "hero-1", title: "Factory Overview" },
+      { id: "hero-2", title: "Processing Plant" },
+      { id: "hero-3", title: "Processing Line" },
+      { id: "hero-4", title: "Cold Storage Facility" },
+      { id: "logistics-baku-1", title: "Logistics Center" },
+      { id: "logistics-baku-2", title: "Distribution Operations" },
     ],
   },
   certificates: {

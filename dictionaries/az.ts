@@ -22,6 +22,7 @@ export const dictionary: Dictionary = {
     export: "İxrac",
     quality: "Keyfiyyət",
     facilities: "İstehsalat",
+    gallery: "Qalereya",
     certificates: "Sertifikatlar",
     complianceCenter: "Sertifikatlar",
     contact: "Əlaqə",
@@ -98,6 +99,8 @@ export const dictionary: Dictionary = {
     subtitle:
       "Topdan satış, pərakəndə satış və beynəlxalq ixrac bazarları üçün hazırlanmış geniş quş əti portfeli.",
     viewAll: "Ətraflı",
+    viewAllProducts: "Bütün Məhsullara Bax",
+    moreDetails: "Ətraflı",
     items: [
       { slug: "whole-chicken", name: "Bütöv Toyuq", description: "Daxili topdan və pərakəndə bazarlar üçün standart bütöv toyuq." },
       { slug: "premium-whole-chicken", name: "Premium Bütöv Toyuq", description: "Üstün ət keyfiyyəti və təqdimatı olan premium bütöv toyuq." },
@@ -157,6 +160,7 @@ export const dictionary: Dictionary = {
     eyebrow: "İstehsalat Obyektləri",
     title: "Dünya Səviyyəli Emal İnfrastrukturu",
     subtitle: "Daxili təchizat və beynəlxalq ixrac əməliyyatlarını təmin edən iki strateji kompleks.",
+    viewGallery: "Qalereyaya Bax",
     items: [
       {
         id: "baku-export-complex",
@@ -199,6 +203,61 @@ export const dictionary: Dictionary = {
         ],
         stat: { value: "7,000/saat", label: "Emal Tutumu" },
       },
+    ],
+  },
+  visualTrust: {
+    eyebrow: "Niyə SUNAZ",
+    title: "Beynəlxalq Alıcılar Niyə SUNAZ-ı Seçir",
+    items: [
+      { title: "Müasir Obyektlər", description: "5,000+ m² istehsal sahəsi və inteqrasiya olunmuş ixrac infrastrukturu ilə müasir emal kompleksləri." },
+      { title: "Halal İstehsal", description: "Beynəlxalq dini və keyfiyyət standartlarına uyğun sertifikatlı halal kəsim və emal." },
+      { title: "İxrac Təcrübəsi", description: "Sənədləşdirmə və uyğunluq sahəsində təcrübə ilə beynəlxalq distribyutorlara xidmət göstərən ixrac əməliyyatları." },
+      { title: "Soyuducu Zəncir Logistikası", description: "Məhsul bütövlüyünü qoruyan soyuducu anbar və temperatur nəzarətli logistika." },
+      { title: "Keyfiyyət Nəzarəti", description: "Hər istehsal mərhələsində çoxmərhələli yoxlama, HACCP sistemləri və laboratoriya testləri." },
+      { title: "Etibarlı Təchizat", description: "Saatda 7,000 quş tutumu ilə davamlı topdan və ixrac təchizatını dəstəkləyən yüksək həcmli istehsal." },
+    ],
+  },
+  partners: {
+    eyebrow: "Qlobal Tərəfdaşlıqlar",
+    title: "Etibarlı Beynəlxalq Tərəfdaşlar",
+    subtitle:
+      "SUNAZ beynəlxalq distribyutorlar və ərzaq şirkətləri ilə əməkdaşlıq edir və özünü qlobal ixrac yönümlü quş əti korporasiyası kimi təqdim edir.",
+    visitWebsite: "Veb Sayta Keç",
+    viewGallery: "Qalereyaya Bax",
+    items: [
+      { id: "atlasfood", name: "Atlas Food", description: "Beynəlxalq ərzaq ticarəti və distribusiya tərəfdaşı." },
+      { id: "sulavco", name: "Sulavco", description: "Beynəlxalq quş əti və ərzaq sektoru tərəfdaşı." },
+    ],
+  },
+  facilityGallery: {
+    eyebrow: "Obyekt Qalereyası",
+    title: "İstehsalat Obyektlərimiz",
+    subtitle: "SUNAZ-ın dünya səviyyəli emal, ixrac və kəsim komplekslərini kəşf edin.",
+    viewGallery: "Tam Qalereyaya Bax",
+    baku: { title: "Bakı İxrac Kompleksi", stats: ["7 hektar", "5,000+ m² istehsal sahəsi", "İxrac hazırlığı mərkəzi"] },
+    lerik: { title: "Lerik Emal Kompleksi", stats: ["15 hektar", "Saatda 7,000 quş"] },
+  },
+  gallery: {
+    page: {
+      meta: { title: "SUNAZ Qalereya | Obyektlər, İstehsal və Məhsullar", description: "SUNAZ istehsal obyektləri, emal xətləri, soyuducu anbar, logistika və premium quş əti məhsullarını araşdırın." },
+      title: "SUNAZ Qalereya",
+      subtitle: "Obyektlərimiz, istehsal əməliyyatları və premium məhsul çeşidimiz üzrə vizual səyahət.",
+      all: "Hamısı",
+      categories: { facilities: "Obyektlər", production: "İstehsal", "cold-storage": "Soyuducu Anbar", logistics: "Logistika", products: "Məhsullar" },
+    },
+    items: [
+      { id: "baku-1", title: "Bakı İxrac Kompleksi" },
+      { id: "baku-2", title: "Bakı İstehsal Zalı" },
+      { id: "baku-3", title: "İxrac Hazırlığı Mərkəzi" },
+      { id: "lerik-1", title: "Lerik Emal Kompleksi" },
+      { id: "lerik-2", title: "Kəsim Obyekti" },
+      { id: "lerik-3", title: "İlkin Emal" },
+      { id: "hero-1", title: "Zavod Ümumi Görünüşü" },
+      { id: "hero-2", title: "Emal Zavodu" },
+      { id: "hero-3", title: "Emal Xətti" },
+      { id: "hero-4", title: "Soyuducu Anbar" },
+      { id: "logistics-baku-1", title: "Logistika Mərkəzi" },
+      { id: "logistics-baku-2", title: "Paylama Əməliyyatları" },
     ],
   },
   certificates: {

@@ -51,6 +51,17 @@ export const PRODUCT_SLUGS = [
 
 export type ProductSlug = (typeof PRODUCT_SLUGS)[number];
 
+export const FEATURED_PRODUCT_SLUGS: ProductSlug[] = [
+  "whole-chicken",
+  "premium-whole-chicken",
+  "chicken-breast",
+  "chicken-fillet",
+  "drumsticks",
+  "chicken-feet",
+  "chicken-paws",
+  "export-products",
+];
+
 export const EXPORT_PRODUCT_SLUGS: ProductSlug[] = [
   "chicken-feet",
   "chicken-paws",

@@ -15,19 +15,19 @@ export default function Quality({ dict }: QualityProps) {
           subtitle={dict.quality.subtitle}
         />
 
-        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid grid-cols-2 gap-3 md:mt-16 md:gap-6 lg:grid-cols-3">
           {dict.quality.items.map((item, index) => (
             <article
               key={item.title}
-              className="group relative overflow-hidden rounded-2xl border border-gray-100 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-sunaz-green/20 hover:shadow-xl"
+              className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-sunaz-green/20 hover:shadow-xl md:p-8"
             >
-              <span className="font-display text-5xl font-bold text-sunaz-green/10 transition-colors group-hover:text-sunaz-gold/20">
+              <span className="font-display text-3xl font-bold text-sunaz-green/10 transition-colors group-hover:text-sunaz-gold/20 md:text-5xl">
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <h3 className="mt-4 font-display text-xl font-semibold text-sunaz-green">
+              <h3 className="mt-3 font-display text-sm font-semibold text-sunaz-green md:mt-4 md:text-xl">
                 {item.title}
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-sunaz-muted">
+              <p className="mt-2 line-clamp-4 flex-1 text-xs leading-relaxed text-sunaz-muted md:mt-3 md:line-clamp-none md:text-sm">
                 {item.description}
               </p>
             </article>

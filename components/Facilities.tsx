@@ -1,11 +1,14 @@
+import Link from "next/link";
 import SectionHeader from "@/components/ui/SectionHeader";
+import type { Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/types/dictionary";
 
 interface FacilitiesProps {
+  locale: Locale;
   dict: Dictionary;
 }
 
-export default function Facilities({ dict }: FacilitiesProps) {
+export default function Facilities({ locale, dict }: FacilitiesProps) {
   return (
     <section id="facilities" className="bg-white py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -79,6 +82,15 @@ export default function Facilities({ dict }: FacilitiesProps) {
               </div>
             </article>
           ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <Link
+            href={`/${locale}/gallery`}
+            className="inline-flex items-center justify-center rounded-full border border-sunaz-green/20 bg-sunaz-green/5 px-10 py-3.5 text-sm font-semibold text-sunaz-green transition-all hover:border-sunaz-green hover:bg-sunaz-green hover:text-white"
+          >
+            {dict.facilities.viewGallery} →
+          </Link>
         </div>
       </div>
     </section>

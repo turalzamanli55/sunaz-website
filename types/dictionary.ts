@@ -38,6 +38,7 @@ export interface Dictionary {
     export: string;
     quality: string;
     facilities: string;
+    gallery: string;
     certificates: string;
     complianceCenter: string;
     contact: string;
@@ -71,6 +72,8 @@ export interface Dictionary {
     title: string;
     subtitle: string;
     viewAll: string;
+    viewAllProducts: string;
+    moreDetails: string;
     items: ProductItem[];
   };
   export: {
@@ -93,7 +96,45 @@ export interface Dictionary {
     eyebrow: string;
     title: string;
     subtitle: string;
+    viewGallery: string;
     items: FacilityItem[];
+  };
+  visualTrust: {
+    eyebrow: string;
+    title: string;
+    items: Array<{ title: string; description: string }>;
+  };
+  partners: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    visitWebsite: string;
+    viewGallery: string;
+    items: Array<{ id: string; name: string; description: string }>;
+  };
+  facilityGallery: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    viewGallery: string;
+    baku: { title: string; stats: string[] };
+    lerik: { title: string; stats: string[] };
+  };
+  gallery: {
+    page: {
+      meta: { title: string; description: string };
+      title: string;
+      subtitle: string;
+      all: string;
+      categories: {
+        facilities: string;
+        production: string;
+        "cold-storage": string;
+        logistics: string;
+        products: string;
+      };
+    };
+    items: Array<{ id: string; title: string }>;
   };
   certificates: {
     eyebrow: string;
