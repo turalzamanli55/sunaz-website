@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/config";
 import { COMPANY } from "@/lib/company";
+import { getPrimaryNavLinks } from "@/lib/navigation";
 import type { Dictionary } from "@/types/dictionary";
 
 interface FooterProps {
@@ -12,15 +13,13 @@ export default function Footer({ locale, dict }: FooterProps) {
   const year = new Date().getFullYear();
 
   const footerLinks = [
-    { label: dict.nav.home, href: `/${locale}#home` },
-    { label: dict.nav.about, href: `/${locale}#about` },
-    { label: dict.nav.products, href: `/${locale}#products` },
-    { label: dict.nav.export, href: `/${locale}#export` },
-    { label: dict.nav.quality, href: `/${locale}#quality` },
-    { label: dict.nav.facilities, href: `/${locale}#facilities` },
-    { label: dict.nav.certificates, href: `/${locale}#certificates` },
-    { label: dict.footer.complianceCenter, href: `/${locale}/certifications` },
-    { label: dict.nav.contact, href: `/${locale}#contact` },
+    { label: dict.nav.home, href: `/${locale}/#home` },
+    ...getPrimaryNavLinks(locale, dict).map((link) =>
+      link.href.endsWith("/certifications")
+        ? { ...link, label: dict.footer.complianceCenter }
+        : link,
+    ),
+    { label: dict.nav.quality, href: `/${locale}/#quality` },
   ];
 
   return (

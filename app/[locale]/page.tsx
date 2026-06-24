@@ -8,7 +8,6 @@ import ExportSection from "@/components/ExportSection";
 import Quality from "@/components/Quality";
 import Facilities from "@/components/Facilities";
 import ComplianceHomeSection from "@/components/certifications/ComplianceHomeSection";
-import Certificates from "@/components/Certificates";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import { isValidLocale, type Locale } from "@/lib/i18n/config";
@@ -37,7 +36,6 @@ export default async function HomePage({
         <Quality dict={dict} />
         <Facilities dict={dict} />
         <ComplianceHomeSection locale={locale} dict={dict} />
-        <Certificates dict={dict} />
         <Contact locale={locale} dict={dict} />
       </main>
       <Footer locale={locale} dict={dict} />

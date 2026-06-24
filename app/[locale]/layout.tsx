@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import LocaleHtmlAttributes from "@/components/LocaleHtmlAttributes";
+import ScrollToTop from "@/components/ScrollToTop";
 import { isValidLocale, locales, type Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { buildPageMetadata } from "@/lib/seo/metadata";
@@ -45,6 +46,7 @@ export default async function LocaleLayout({
         />
       ))}
       {children}
+      <ScrollToTop />
     </>
   );
 }

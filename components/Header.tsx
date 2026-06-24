@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/types/dictionary";
 import { COMPANY } from "@/lib/company";
+import { getPrimaryNavLinks } from "@/lib/navigation";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 
@@ -15,99 +16,134 @@ interface HeaderProps {
 
 export default function Header({ locale, dict }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navLinks = getPrimaryNavLinks(locale, dict);
 
-  const navLinks = [
-    { label: dict.nav.home, href: `#home` },
-    { label: dict.nav.about, href: `#about` },
-    { label: dict.nav.products, href: `#products` },
-    { label: dict.nav.export, href: `#export` },
-    { label: dict.nav.quality, href: `#quality` },
-    { label: dict.nav.facilities, href: `#facilities` },
-    { label: dict.nav.certificates, href: `#certificates` },
-    { label: dict.nav.complianceCenter, href: `/${locale}/certifications` },
-    { label: dict.nav.contact, href: `#contact` },
-  ];
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-white/70 backdrop-blur-xl">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-6 lg:h-20 lg:px-8">
-        <Link
-          href={`/${locale}`}
-          className="shrink-0 font-display text-xl font-semibold tracking-tight text-sunaz-green transition-colors hover:text-sunaz-green-light sm:text-2xl lg:text-3xl"
-        >
-          SUNAZ
-        </Link>
-
-        <nav className="hidden items-center gap-6 xl:flex">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-gray-600 transition-colors hover:text-sunaz-green"
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
-
-        <div className="flex items-center gap-2 sm:gap-3">
-          <LanguageSwitcher locale={locale} />
-
-          <a
-            href={COMPANY.whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden items-center gap-2 rounded-full bg-[#25D366] px-4 py-2.5 text-sm font-medium text-white shadow-sm transition-all hover:bg-[#1ebe57] hover:shadow-md md:inline-flex"
+    <>
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-black/[0.06] bg-white/72 backdrop-blur-2xl supports-[backdrop-filter]:bg-white/65">
+        <div className="relative mx-auto flex h-14 max-w-7xl items-center justify-between px-5 lg:h-[4.25rem] lg:px-8">
+          <Link
+            href={`/${locale}`}
+            className="relative z-10 shrink-0 font-display text-xl font-semibold tracking-tight text-sunaz-green transition-opacity hover:opacity-80 lg:text-2xl"
           >
-            <WhatsAppIcon className="h-4 w-4" />
-            <span className="hidden lg:inline">{dict.nav.whatsapp}</span>
-          </a>
+            SUNAZ
+          </Link>
 
-          <button
-            type="button"
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="inline-flex items-center justify-center rounded-lg p-2 text-sunaz-green transition-colors hover:bg-gray-100 xl:hidden"
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={menuOpen}
+          <nav
+            className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-9 lg:flex"
+            aria-label="Main navigation"
           >
-            {menuOpen ? (
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            ) : (
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-              </svg>
-            )}
-          </button>
-        </div>
-      </div>
-
-      {menuOpen && (
-        <nav className="border-t border-gray-100 bg-white/95 px-6 py-4 backdrop-blur-xl xl:hidden">
-          <div className="flex flex-col gap-1">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
-                onClick={() => setMenuOpen(false)}
-                className="rounded-lg px-3 py-2.5 text-base font-medium text-gray-700 transition-colors hover:bg-gray-50 hover:text-sunaz-green"
+                className="group relative text-[13px] font-normal tracking-wide text-gray-600 transition-colors duration-200 hover:text-sunaz-green"
               >
                 {link.label}
-              </a>
+                <span className="absolute -bottom-1 left-0 h-px w-0 bg-sunaz-green transition-all duration-300 ease-out group-hover:w-full" />
+              </Link>
             ))}
+          </nav>
+
+          <div className="relative z-10 flex items-center gap-2 sm:gap-2.5">
+            <LanguageSwitcher locale={locale} />
+
             <a
               href={COMPANY.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-5 py-3 text-sm font-medium text-white"
+              className="hidden items-center justify-center rounded-full bg-[#25D366] p-2.5 text-white shadow-sm transition-all duration-200 hover:scale-105 hover:bg-[#1ebe57] hover:shadow-md md:inline-flex"
+              aria-label={dict.nav.whatsapp}
             >
               <WhatsAppIcon className="h-4 w-4" />
+            </a>
+
+            <button
+              type="button"
+              onClick={() => setMenuOpen(true)}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full text-sunaz-green transition-colors hover:bg-black/[0.04] lg:hidden"
+              aria-label="Open menu"
+              aria-expanded={menuOpen}
+            >
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <div
+        className={`fixed inset-0 z-[60] lg:hidden ${menuOpen ? "pointer-events-auto" : "pointer-events-none"}`}
+        aria-hidden={!menuOpen}
+      >
+        <button
+          type="button"
+          onClick={() => setMenuOpen(false)}
+          className={`absolute inset-0 bg-black/20 backdrop-blur-sm transition-opacity duration-300 ${
+            menuOpen ? "opacity-100" : "opacity-0"
+          }`}
+          aria-label="Close menu"
+          tabIndex={menuOpen ? 0 : -1}
+        />
+
+        <nav
+          className={`absolute right-0 top-0 flex h-full w-[min(100vw-3rem,20rem)] flex-col bg-white/95 shadow-2xl backdrop-blur-2xl transition-transform duration-300 ease-out ${
+            menuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+          aria-label="Mobile navigation"
+        >
+          <div className="flex h-14 items-center justify-between border-b border-black/[0.06] px-5">
+            <span className="font-display text-lg font-semibold text-sunaz-green">SUNAZ</span>
+            <button
+              type="button"
+              onClick={() => setMenuOpen(false)}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full text-gray-600 transition-colors hover:bg-black/[0.04]"
+              aria-label="Close menu"
+            >
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
+          <div className="flex flex-1 flex-col gap-1 overflow-y-auto px-4 py-6">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setMenuOpen(false)}
+                className="rounded-xl px-4 py-3.5 text-[17px] font-normal tracking-wide text-gray-800 transition-colors active:bg-black/[0.04] hover:bg-black/[0.03] hover:text-sunaz-green"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+
+          <div className="border-t border-black/[0.06] p-5">
+            <a
+              href={COMPANY.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex w-full items-center justify-center gap-2.5 rounded-full bg-[#25D366] px-5 py-3.5 text-[15px] font-medium text-white shadow-sm transition-all hover:bg-[#1ebe57]"
+            >
+              <WhatsAppIcon className="h-5 w-5" />
               {dict.nav.whatsapp}
             </a>
           </div>
         </nav>
-      )}
-    </header>
+      </div>
+    </>
   );
 }
