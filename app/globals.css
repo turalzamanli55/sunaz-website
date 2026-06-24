@@ -2,25 +2,38 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1a1a1a;
+  --sunaz-green: #0f3d2e;
+  --sunaz-green-light: #1a5c45;
+  --sunaz-gold: #d4af37;
+  --sunaz-gold-light: #e8c96a;
+  --sunaz-muted: #6b7280;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-sunaz-green: var(--sunaz-green);
+  --color-sunaz-green-light: var(--sunaz-green-light);
+  --color-sunaz-gold: var(--sunaz-gold);
+  --color-sunaz-gold-light: var(--sunaz-gold-light);
+  --color-sunaz-muted: var(--sunaz-muted);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-playfair);
+  --font-family-display: var(--font-playfair), Georgia, serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+:lang(zh) body,
+:lang(zh-Hans) body {
+  font-family: var(--font-noto-sc), var(--font-inter), system-ui, sans-serif;
 }

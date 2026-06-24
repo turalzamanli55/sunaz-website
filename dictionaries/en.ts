@@ -1,0 +1,342 @@
+import type { Dictionary } from "@/types/dictionary";
+
+export const dictionary: Dictionary = {
+  meta: {
+    title: "SUNAZ | Premium Poultry Processing & Export Company",
+    description:
+      "SUNAZ Group LLC is one of Azerbaijan's leading poultry processing, slaughtering and export-oriented food production companies serving domestic and international markets.",
+    keywords: [
+      "SUNAZ",
+      "poultry processing",
+      "halal chicken",
+      "export poultry",
+      "Azerbaijan food production",
+      "chicken feet export",
+      "poultry slaughtering",
+    ],
+  },
+  nav: {
+    home: "Home",
+    about: "About",
+    products: "Products",
+    export: "Export",
+    quality: "Quality",
+    facilities: "Facilities",
+    certificates: "Certificates",
+    complianceCenter: "Certifications",
+    contact: "Contact",
+    whatsapp: "WhatsApp",
+  },
+  hero: {
+    badge: "SUNAZ Group LLC · Est. 2020",
+    headline: "Premium Poultry Products & Halal Processing",
+    subheadline:
+      "One of Azerbaijan's leading poultry processing and export companies.",
+    ctaProducts: "Products",
+    ctaAbout: "About Us",
+    ctaContact: "Contact",
+    ctaExport: "Export Products",
+  },
+  stats: {
+    eyebrow: "Corporate Overview",
+    title: "Built for Scale, Engineered for Export",
+    items: [
+      { id: "founded", value: 2020, displayValue: "2020", label: "Founded in 2020", animate: true },
+      { id: "facilities", value: 2, displayValue: "2", label: "Production Facilities", animate: true },
+      { id: "baku-hectares", value: 7, displayValue: "7", suffix: " ha", label: "Export Complex Land Area", animate: true },
+      { id: "production-area", value: 5000, displayValue: "5,000+", suffix: " m²", label: "Production Area", animate: true },
+      { id: "lerik-hectares", value: 15, displayValue: "15", suffix: " ha", label: "Processing Complex Land Area", animate: true },
+      { id: "capacity", value: 7000, displayValue: "7,000", label: "Chickens Per Hour", animate: true },
+      { id: "export", value: null, displayValue: "100%", label: "Export-Oriented Production", animate: false },
+      { id: "standards", value: null, displayValue: "ISO", label: "International Quality Standards", animate: false },
+    ],
+  },
+  about: {
+    eyebrow: "About Us",
+    title: "A Fully Integrated Poultry Processing Ecosystem",
+    paragraphs: [
+      "SUNAZ Group LLC, founded in 2020, is one of Azerbaijan's leading poultry processing, slaughtering and export-oriented food production companies.",
+      "Headquartered in Baku, Azerbaijan, the company operates a fully integrated poultry processing ecosystem serving both domestic and international markets.",
+      "SUNAZ specializes in poultry slaughtering, processing, packaging, wholesale distribution and export preparation while maintaining the highest standards of food safety, quality control and halal production.",
+    ],
+    facilitiesTitle: "Production Facilities",
+    facilities: [
+      {
+        name: "Baku Processing & Export Complex",
+        details: ["7 hectares", "5,000+ m² production area"],
+      },
+      {
+        name: "Lerik Poultry Slaughtering Complex",
+        details: ["15 hectares", "Capacity of 7,000 chickens per hour"],
+      },
+    ],
+    productsTitle: "Product Portfolio",
+    productList: [
+      "Whole Chicken",
+      "Premium Whole Chicken",
+      "Fast Cooking Chicken",
+      "Slow Growing Chicken",
+      "Chicken Fillet",
+      "Chicken Breast",
+      "Drumsticks",
+      "Thighs",
+      "Wings",
+      "Mid Joint Wings",
+      "Three Joint Wings",
+      "Chicken Feet",
+      "Chicken Paws",
+      "Liver",
+      "Heart",
+      "Gizzard",
+      "Export Products",
+      "Customized Poultry Cuts",
+    ],
+  },
+  products: {
+    eyebrow: "Products",
+    title: "Premium Export-Grade Product Range",
+    subtitle:
+      "Comprehensive poultry portfolio engineered for wholesale, retail and international export markets.",
+    viewAll: "Explore",
+    items: [
+      { slug: "whole-chicken", name: "Whole Chicken", description: "Standard whole chicken for domestic wholesale and retail distribution." },
+      { slug: "premium-whole-chicken", name: "Premium Whole Chicken", description: "Premium-grade whole chicken with superior meat quality and presentation." },
+      { slug: "fast-cooking-chicken", name: "Fast Cooking Chicken", description: "Optimized for quick preparation without compromising tenderness." },
+      { slug: "slow-growing-chicken", name: "Slow Growing Chicken", description: "Slow-grown poultry with enhanced flavor and premium texture." },
+      { slug: "chicken-fillet", name: "Chicken Fillet", description: "Boneless fillets with consistent sizing for food service and retail." },
+      { slug: "chicken-breast", name: "Chicken Breast", description: "Premium breast cuts for high-end culinary and export applications." },
+      { slug: "drumsticks", name: "Drumsticks", description: "Uniform drumsticks prepared for wholesale and international markets." },
+      { slug: "thighs", name: "Thighs", description: "Juicy thigh cuts with precise trimming and export-ready packaging." },
+      { slug: "wings", name: "Wings", description: "Whole wings processed to international food safety standards." },
+      { slug: "mid-joint-wings", name: "Mid Joint Wings", description: "Export-grade mid joint wings for global distribution partners.", exportGrade: true },
+      { slug: "three-joint-wings", name: "Three Joint Wings", description: "Three joint wing cuts prepared for international export specifications.", exportGrade: true },
+      { slug: "chicken-feet", name: "Chicken Feet", description: "Premium chicken feet processed for Asian and global export markets.", exportGrade: true },
+      { slug: "chicken-paws", name: "Chicken Paws", description: "Grade-A chicken paws with export-compliant processing and packaging.", exportGrade: true },
+      { slug: "liver", name: "Liver", description: "Fresh poultry liver for domestic and specialty export channels." },
+      { slug: "heart", name: "Heart", description: "Carefully processed poultry heart for wholesale distribution." },
+      { slug: "gizzard", name: "Gizzard", description: "Cleaned and sorted gizzards meeting strict quality parameters." },
+      { slug: "export-products", name: "Export Products", description: "Customized export product lines tailored to partner specifications.", exportGrade: true },
+    ],
+  },
+  export: {
+    eyebrow: "Global Export",
+    title: "Export Ready Poultry Products",
+    subtitle: "International trade infrastructure built into every production line.",
+    description:
+      "SUNAZ is among the pioneering companies in Azerbaijan specializing in export-oriented poultry products. Our export division manages product classification, documentation, cold-chain logistics and compliance for international partners.",
+    productsTitle: "Key Export Products",
+    products: [
+      "Chicken Feet",
+      "Chicken Paws",
+      "Three Joint Wings",
+      "Mid Joint Wings",
+      "Customized Export Cuts",
+    ],
+    indicators: [
+      { title: "Export Documentation", description: "Veterinary certificates, halal compliance and customs-ready export paperwork." },
+      { title: "Cold-Chain Logistics", description: "Refrigerated storage and temperature-controlled dispatch for international shipments." },
+      { title: "Custom Specifications", description: "Tailored cuts, grading and packaging aligned with buyer requirements." },
+      { title: "Global Compliance", description: "Production aligned with international food safety and import regulations." },
+    ],
+    cta: "Request Export Inquiry",
+  },
+  quality: {
+    eyebrow: "Quality & Food Safety",
+    title: "Uncompromising Standards at Every Stage",
+    subtitle: "From slaughtering to dispatch — quality is engineered into our operations.",
+    items: [
+      { title: "Halal Production", description: "Certified halal slaughtering and processing protocols supervised by authorized religious authorities." },
+      { title: "Food Safety", description: "HACCP-based systems with continuous monitoring across all production and packaging lines." },
+      { title: "Quality Control", description: "Multi-stage inspection, grading and laboratory testing before products leave our facilities." },
+      { title: "Refrigerated Logistics", description: "Integrated cold storage and chilled transport maintaining product integrity end-to-end." },
+      { title: "Veterinary Compliance", description: "Full veterinary oversight with health certification for domestic and export markets." },
+      { title: "International Standards", description: "Operations aligned with global food production, safety and export compliance frameworks." },
+    ],
+  },
+  facilities: {
+    eyebrow: "Production Facilities",
+    title: "World-Class Processing Infrastructure",
+    subtitle: "Two strategic complexes powering domestic supply and international export operations.",
+    items: [
+      {
+        id: "baku-export-complex",
+        name: "Baku Processing & Export Complex",
+        location: [
+          "Azerbaijan",
+          "Baku City",
+          "Binagadi District",
+          "28 May Settlement",
+          "Baku-Shamakhi Highway",
+          "14th Kilometer",
+        ],
+        description:
+          "SUNAZ's primary processing, packaging and export preparation center located on 7 hectares with more than 5,000 square meters of modern production space.",
+        highlights: [
+          "Processing lines",
+          "Export preparation operations",
+          "Refrigerated storage systems",
+          "Quality control operations",
+          "Packaging lines",
+          "Logistics center",
+          "Food safety systems",
+        ],
+        stat: { value: "5,000+ m²", label: "Production Area" },
+      },
+      {
+        id: "lerik-slaughter-complex",
+        name: "Lerik Poultry Slaughtering Complex",
+        location: ["Azerbaijan", "Lerik District", "Piran Village"],
+        description:
+          "Large-scale poultry slaughtering and primary processing complex with a production capacity of 7,000 chickens per hour.",
+        highlights: [
+          "Halal poultry slaughtering",
+          "Primary processing",
+          "Product classification",
+          "Chilling operations",
+          "Veterinary inspection",
+          "Packaging preparation",
+          "Distribution logistics",
+        ],
+        stat: { value: "7,000/hr", label: "Processing Capacity" },
+      },
+    ],
+  },
+  certificates: {
+    eyebrow: "Certifications",
+    title: "Internationally Recognized Compliance",
+    subtitle: "Certifications that validate our commitment to halal, safety and export excellence.",
+    items: [
+      { badge: "Halal", title: "Halal Certification", description: "Certified halal production in accordance with Islamic dietary laws and international standards." },
+      { badge: "VET", title: "Veterinary Certification", description: "Products meet strict veterinary health requirements for domestic and export markets." },
+      { badge: "QA", title: "Quality Assurance", description: "Comprehensive quality management ensuring consistent product excellence." },
+      { badge: "EXP", title: "Export Compliance", description: "Export operations certified for international trade and customs compliance." },
+    ],
+  },
+  compliance: {
+    home: {
+      eyebrow: "Compliance",
+      title: "Certifications & Compliance",
+      subtitle:
+        "SUNAZ commitment to quality, halal production, food safety and international export standards.",
+      viewAll: "View Compliance Center",
+    },
+    page: {
+      meta: {
+        title: "SUNAZ Certifications & Compliance",
+        description:
+          "Explore SUNAZ certifications, halal compliance, AQTA documentation, veterinary approvals and export readiness standards.",
+      },
+      hero: {
+        title: "Certifications & Compliance Center",
+        subtitle:
+          "Official documentation and compliance standards supporting international trade partnerships.",
+      },
+      trustTitle: "Compliance & Trust Indicators",
+      trustBadges: [
+        "Halal Production",
+        "AQTA Compliance",
+        "Veterinary Approved",
+        "Export Ready",
+        "Food Safety Standards",
+        "Quality Control Systems",
+      ],
+      importer: {
+        title: "Trusted by International Buyers",
+        content:
+          "SUNAZ maintains compliance with food safety, halal production and export requirements to support long-term partnerships with international distributors, wholesalers and food industry buyers.",
+        indicators: [
+          {
+            title: "Export Ready Production",
+            description: "Facilities and processes aligned with international export specifications.",
+          },
+          {
+            title: "Temperature Controlled Logistics",
+            description: "Cold-chain integrity maintained from processing to dispatch.",
+          },
+          {
+            title: "Quality Assurance",
+            description: "Multi-stage quality control across all production operations.",
+          },
+          {
+            title: "Regulatory Compliance",
+            description: "Documentation and standards meeting domestic and import market requirements.",
+          },
+        ],
+      },
+      cards: {
+        view: "View Certificate",
+        download: "Download PDF",
+        issueDate: "Issue Date",
+        issueDateValue: "January 2024",
+      },
+      items: [
+        {
+          id: "halal",
+          title: "Halal Certification",
+          description: "Halal poultry processing and slaughtering standards.",
+        },
+        {
+          id: "aqta",
+          title: "AQTA Compliance",
+          description:
+            "Compliance with food safety and regulatory requirements established by the Food Safety Agency of Azerbaijan.",
+        },
+        {
+          id: "veterinary",
+          title: "Veterinary Certification",
+          description: "Veterinary inspection and health certification for poultry products.",
+        },
+        {
+          id: "export",
+          title: "Export Compliance",
+          description: "Export documentation and international trade requirements.",
+        },
+        {
+          id: "quality",
+          title: "Quality Assurance",
+          description: "Quality management, food safety and operational control systems.",
+        },
+      ],
+    },
+  },
+  contact: {
+    eyebrow: "Contact",
+    title: "Partner With SUNAZ",
+    subtitle: "Connect with our team for wholesale orders, export partnerships and corporate inquiries.",
+    phone: "Phone",
+    email: "Email",
+    address: "Address",
+    headquarters: "Baku, Azerbaijan — Binagadi District",
+    whatsappCta: "Chat on WhatsApp",
+    exportInquiryCta: "Export Inquiry",
+    mapTitle: "Headquarters & Export Complex",
+    form: {
+      name: "Full Name",
+      company: "Company",
+      country: "Country",
+      email: "Email Address",
+      phone: "Phone Number",
+      message: "Message",
+      submit: "Send Message",
+      submitting: "Sending...",
+      success: "Thank you. Your message has been received. Our team will contact you shortly.",
+      error: "Unable to send your message. Please try again or contact us directly.",
+      exportSubject: "Export Inquiry",
+    },
+  },
+  footer: {
+    description:
+      "SUNAZ Group LLC — Azerbaijan's leading poultry processing, slaughtering and export-oriented food production company serving domestic and international markets since 2020.",
+    quickLinks: "Quick Links",
+    companyInfo: "Company Information",
+    complianceCenter: "Certifications & Compliance",
+    infoItems: [
+      "Premium Poultry Processing",
+      "Halal Certified Production",
+      "Export Manufacturing",
+      "Baku, Azerbaijan",
+    ],
+    tagline: "Premium Halal Poultry — Domestic & Global Markets",
+    copyright: "All rights reserved.",
+  },
+};
