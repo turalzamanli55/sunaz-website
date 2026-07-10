@@ -1,9 +1,7 @@
 import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import Stats from "@/components/Stats";
 import VisualTrust from "@/components/VisualTrust";
-import About from "@/components/About";
 import Products from "@/components/Products";
 import ExportSection from "@/components/ExportSection";
 import TrustedPartners from "@/components/TrustedPartners";
@@ -31,9 +29,7 @@ export default async function HomePage({
       <Header locale={locale} dict={dict} />
       <main>
         <Hero locale={locale} dict={dict} />
-        <Stats dict={dict} />
         <VisualTrust dict={dict} />
-        <About dict={dict} />
         <Products locale={locale} dict={dict} />
         <ExportSection dict={dict} />
         <TrustedPartners dict={dict} />
