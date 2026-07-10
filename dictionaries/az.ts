@@ -30,7 +30,7 @@ export const dictionary: Dictionary = {
   },
   hero: {
     badge: "SUNAZ Group LLC · 2020-cı ildən",
-    headline: "Premium Toyuq Məhsulları və Halal Kəsim",
+    headline: "Premium Toyuq Məhsulları",
     subheadline:
       "Azərbaycanın aparıcı quş əti emalı və ixrac şirkətlərindən biri.",
     ctaProducts: "Məhsullar",

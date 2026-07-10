@@ -30,7 +30,7 @@ export const dictionary: Dictionary = {
   },
   hero: {
     badge: "SUNAZ Group LLC · Est. 2020",
-    headline: "Premium Poultry Products & Halal Processing",
+    headline: "Premium Poultry Products",
     subheadline:
       "One of Azerbaijan's leading poultry processing and export companies.",
     ctaProducts: "Products",

@@ -1,6 +1,7 @@
 "use server";
 
-import { COMPANY } from "@/lib/company";
+import { headers } from "next/headers";
+import nodemailer from "nodemailer";
 
 export type ContactFormState = {
   success: boolean;
@@ -9,6 +10,7 @@ export type ContactFormState = {
 };
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const CONTACT_SUBJECT = "SUNAZ Website Contact Form";
 
 function validateField(value: string, minLength: number, fieldName: string): string | undefined {
   const trimmed = value.trim();
@@ -16,6 +18,90 @@ function validateField(value: string, minLength: number, fieldName: string): str
     return `${fieldName} is required`;
   }
   return undefined;
+}
+
+function getClientIp(headerStore: Headers): string | undefined {
+  const forwarded = headerStore.get("x-forwarded-for");
+  if (forwarded) {
+    const first = forwarded.split(",")[0]?.trim();
+    if (first) return first;
+  }
+  return headerStore.get("x-real-ip") ?? undefined;
+}
+
+function buildEmailBody(fields: {
+  name: string;
+  company: string;
+  country: string;
+  email: string;
+  phone: string;
+  message: string;
+  submittedAt: string;
+  ip?: string;
+}): string {
+  return [
+    "SUNAZ Website Contact Form",
+    "",
+    `Full Name: ${fields.name}`,
+    `Company: ${fields.company}`,
+    `Country: ${fields.country}`,
+    `Email: ${fields.email}`,
+    `Phone: ${fields.phone}`,
+    `Message: ${fields.message}`,
+    "",
+    `Submission Time: ${fields.submittedAt}`,
+    `User IP: ${fields.ip ?? "unavailable"}`,
+  ].join("\n");
+}
+
+async function sendContactEmail(payload: {
+  name: string;
+  company: string;
+  country: string;
+  email: string;
+  phone: string;
+  message: string;
+  submittedAt: string;
+  ip?: string;
+}): Promise<boolean> {
+  const host = process.env.SMTP_HOST;
+  const portRaw = process.env.SMTP_PORT;
+  const user = process.env.SMTP_USER;
+  const pass = process.env.SMTP_PASS;
+  const from = process.env.CONTACT_FROM_EMAIL;
+  const to = process.env.CONTACT_TO_EMAIL;
+
+  if (!host || !portRaw || !user || !pass || !from || !to) {
+    console.error("[SUNAZ Contact] Missing SMTP environment variables");
+    return false;
+  }
+
+  const port = Number(portRaw);
+  if (!Number.isFinite(port)) {
+    console.error("[SUNAZ Contact] Invalid SMTP_PORT");
+    return false;
+  }
+
+  const transporter = nodemailer.createTransport({
+    host,
+    port,
+    secure: port === 465,
+    auth: { user, pass },
+  });
+
+  try {
+    await transporter.sendMail({
+      from,
+      to,
+      replyTo: payload.email,
+      subject: CONTACT_SUBJECT,
+      text: buildEmailBody(payload),
+    });
+    return true;
+  } catch (error) {
+    console.error("[SUNAZ Contact] SMTP send failed", error);
+    return false;
+  }
 }
 
 export async function submitContactForm(
@@ -28,8 +114,6 @@ export async function submitContactForm(
   const email = String(formData.get("email") ?? "");
   const phone = String(formData.get("phone") ?? "");
   const message = String(formData.get("message") ?? "");
-  const locale = String(formData.get("locale") ?? "en");
-  const inquiryType = String(formData.get("inquiryType") ?? "general");
 
   const errors: ContactFormState["errors"] = {
     name: validateField(name, 2, "name"),
@@ -49,33 +133,20 @@ export async function submitContactForm(
     };
   }
 
-  const payload = {
+  const headerStore = await headers();
+  const sent = await sendContactEmail({
     name: name.trim(),
     company: company.trim(),
     country: country.trim(),
     email: email.trim(),
     phone: phone.trim(),
     message: message.trim(),
-    locale,
-    inquiryType,
     submittedAt: new Date().toISOString(),
-    to: COMPANY.email,
-  };
+    ip: getClientIp(headerStore),
+  });
 
-  const webhookUrl = process.env.CONTACT_WEBHOOK_URL;
-
-  if (webhookUrl) {
-    const response = await fetch(webhookUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
-
-    if (!response.ok) {
-      return { success: false, message: "delivery_error" };
-    }
-  } else if (process.env.NODE_ENV === "production") {
-    console.info("[SUNAZ Contact]", JSON.stringify(payload));
+  if (!sent) {
+    return { success: false, message: "delivery_error" };
   }
 
   return { success: true, message: "success" };

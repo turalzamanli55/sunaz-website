@@ -10,7 +10,6 @@ export const HERO_IMAGES = [
  * Keep these path constants; no component changes needed when swapping assets.
  */
 export const HERO_VIDEO = "/placeholders/hero/hero-video.mp4";
-export const HERO_VIDEO_POSTER = "/placeholders/hero/hero-poster.jpg";
 
 export const FACILITY_IMAGES = {
   baku: [

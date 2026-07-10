@@ -1,10 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import type { Locale } from "@/lib/i18n/config";
-import { HERO_VIDEO, HERO_VIDEO_POSTER } from "@/lib/placeholders/assets";
+import { HERO_VIDEO } from "@/lib/placeholders/assets";
 import type { Dictionary } from "@/types/dictionary";
 
 interface HeroSectionProps {
@@ -14,36 +13,16 @@ interface HeroSectionProps {
 
 export default function HeroSection({ locale, dict }: HeroSectionProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [videoReady, setVideoReady] = useState(false);
-  const [canPlayVideo, setCanPlayVideo] = useState(true);
-  const [preferReducedMotion, setPreferReducedMotion] = useState(false);
 
   useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const update = () => setPreferReducedMotion(mq.matches);
-    update();
-    mq.addEventListener("change", update);
-    return () => mq.removeEventListener("change", update);
-  }, []);
-
-  useEffect(() => {
-    if (preferReducedMotion || !canPlayVideo) return;
     const video = videoRef.current;
     if (!video) return;
-
-    const play = async () => {
-      try {
-        video.muted = true;
-        await video.play();
-      } catch {
-        setCanPlayVideo(false);
-      }
-    };
-
-    void play();
-  }, [preferReducedMotion, canPlayVideo]);
-
-  const showVideo = canPlayVideo && !preferReducedMotion;
+    video.muted = true;
+    video.setAttribute("webkit-playsinline", "true");
+    void video.play().catch(() => {
+      /* autoplay may be blocked; attributes still request immediate play */
+    });
+  }, []);
 
   return (
     <section id="home" className="overflow-hidden bg-gradient-to-b from-gray-50/80 to-white pt-14 lg:pt-[4.25rem]">
@@ -56,39 +35,20 @@ export default function HeroSection({ locale, dict }: HeroSectionProps) {
               style={{ background: "#0F3F2E" }}
             >
               <div className="relative aspect-video w-full">
-                <Image
-                  src={HERO_VIDEO_POSTER}
-                  alt=""
-                  fill
-                  priority
-                  sizes="(max-width: 560px) 100vw, 560px"
-                  className={`object-contain transition-opacity duration-300 ${
-                    showVideo && videoReady ? "opacity-0" : "opacity-100"
-                  }`}
+                <video
+                  ref={videoRef}
+                  className="absolute inset-0 h-full w-full object-contain"
+                  src={HERO_VIDEO}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="auto"
+                  controls={false}
+                  disablePictureInPicture
+                  disableRemotePlayback
+                  aria-hidden="true"
                 />
-
-                {showVideo && (
-                  <video
-                    ref={videoRef}
-                    className={`absolute inset-0 h-full w-full object-contain transition-opacity duration-300 ${
-                      videoReady ? "opacity-100" : "opacity-0"
-                    }`}
-                    src={HERO_VIDEO}
-                    poster={HERO_VIDEO_POSTER}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
-                    controls={false}
-                    disablePictureInPicture
-                    disableRemotePlayback
-                    onLoadedData={() => setVideoReady(true)}
-                    onCanPlay={() => setVideoReady(true)}
-                    onError={() => setCanPlayVideo(false)}
-                    aria-hidden="true"
-                  />
-                )}
               </div>
             </div>
           </div>
@@ -102,7 +62,7 @@ export default function HeroSection({ locale, dict }: HeroSectionProps) {
           </div>
 
           {/* 3. Title */}
-          <h1 className="mt-6 font-display text-4xl font-semibold leading-[1.08] tracking-tight text-sunaz-green sm:text-5xl lg:text-6xl xl:text-7xl">
+          <h1 className="mt-6 font-display text-3xl font-semibold leading-[1.08] tracking-tight text-sunaz-green sm:text-4xl lg:text-5xl xl:text-6xl">
             {dict.hero.headline}
           </h1>
 

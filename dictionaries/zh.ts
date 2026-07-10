@@ -30,7 +30,7 @@ export const dictionary: Dictionary = {
   },
   hero: {
     badge: "SUNAZ Group LLC · 成立于2020年",
-    headline: "优质禽肉产品与清真加工",
+    headline: "优质禽肉产品",
     subheadline: "阿塞拜疆领先的禽肉加工与出口企业之一。",
     ctaProducts: "产品",
     ctaAbout: "关于我们",

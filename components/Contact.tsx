@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect, useRef } from "react";
 import { submitContactForm, type ContactFormState } from "@/app/actions/contact";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import SectionHeader from "@/components/ui/SectionHeader";
@@ -17,6 +17,15 @@ interface ContactProps {
 
 export default function Contact({ locale, dict }: ContactProps) {
   const [state, formAction, pending] = useActionState(submitContactForm, initialState);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    if (state.success) {
+      formRef.current?.reset();
+      const input = document.getElementById("inquiryType") as HTMLInputElement | null;
+      if (input) input.value = "general";
+    }
+  }, [state]);
 
   return (
     <section id="contact" className="bg-white py-20 lg:py-28">
@@ -29,7 +38,7 @@ export default function Contact({ locale, dict }: ContactProps) {
 
         <div className="mt-16 grid gap-12 lg:grid-cols-2">
           <div>
-            <form action={formAction} className="space-y-5">
+            <form ref={formRef} action={formAction} className="space-y-5">
               <input type="hidden" name="locale" value={locale} />
               <input type="hidden" name="inquiryType" id="inquiryType" value="general" />
 
@@ -128,6 +137,10 @@ export default function Contact({ locale, dict }: ContactProps) {
                 <button
                   type="submit"
                   disabled={pending}
+                  onClick={() => {
+                    const input = document.getElementById("inquiryType") as HTMLInputElement;
+                    if (input) input.value = "general";
+                  }}
                   className="inline-flex items-center justify-center rounded-full bg-sunaz-green px-8 py-3.5 text-sm font-semibold text-white shadow-lg transition-all hover:bg-sunaz-green-light disabled:opacity-60"
                 >
                   {pending ? dict.contact.form.submitting : dict.contact.form.submit}

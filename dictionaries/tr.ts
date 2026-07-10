@@ -30,7 +30,7 @@ export const dictionary: Dictionary = {
   },
   hero: {
     badge: "SUNAZ Group LLC · 2020'den Beri",
-    headline: "Premium Tavuk Ürünleri ve Helal İşleme",
+    headline: "Premium Tavuk Ürünleri",
     subheadline:
       "Azerbaycan'ın önde gelen kümes hayvanı işleme ve ihracat şirketlerinden biri.",
     ctaProducts: "Ürünler",
