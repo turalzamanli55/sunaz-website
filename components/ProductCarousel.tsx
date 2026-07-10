@@ -15,23 +15,26 @@ interface ProductCarouselProps {
 }
 
 function getPerView(width: number): number {
-  if (width < 768) return 1;
-  if (width < 1024) return 2;
-  if (width < 1280) return 3;
+  if (width < 768) return 1.2;
+  if (width < 1024) return 3;
   return 4;
 }
 
 export default function ProductCarousel({ products, locale, learnMore }: ProductCarouselProps) {
   const [index, setIndex] = useState(0);
   const [perView, setPerView] = useState(4);
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragOffset, setDragOffset] = useState(0);
   const touchStartX = useRef<number | null>(null);
-  const maxIndex = Math.max(0, products.length - perView);
+  const dragStartX = useRef<number | null>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const maxIndex = Math.max(0, Math.ceil(products.length - perView));
 
   useEffect(() => {
     const update = () => {
       const next = getPerView(window.innerWidth);
       setPerView(next);
-      setIndex((i) => Math.min(i, Math.max(0, products.length - next)));
+      setIndex((i) => Math.min(i, Math.max(0, Math.ceil(products.length - next))));
     };
     update();
     window.addEventListener("resize", update);
@@ -58,38 +61,75 @@ export default function ProductCarousel({ products, locale, learnMore }: Product
     touchStartX.current = null;
   }
 
+  function handlePointerDown(e: React.PointerEvent) {
+    if (e.pointerType === "touch") return;
+    dragStartX.current = e.clientX;
+    setIsDragging(true);
+    (e.target as HTMLElement).setPointerCapture?.(e.pointerId);
+  }
+
+  function handlePointerMove(e: React.PointerEvent) {
+    if (dragStartX.current === null || e.pointerType === "touch") return;
+    setDragOffset(e.clientX - dragStartX.current);
+  }
+
+  function handlePointerUp(e: React.PointerEvent) {
+    if (dragStartX.current === null || e.pointerType === "touch") return;
+    const diff = dragStartX.current - e.clientX;
+    if (Math.abs(diff) > 50) {
+      goTo(diff > 0 ? index + 1 : index - 1);
+    }
+    dragStartX.current = null;
+    setIsDragging(false);
+    setDragOffset(0);
+  }
+
   const pageCount = maxIndex + 1;
+  const slidePercent = 100 / perView;
+  const trackWidth = trackRef.current?.offsetWidth ?? 1;
+  const dragPercent = isDragging ? (dragOffset / trackWidth) * 100 : 0;
+  const translate = -(index * slidePercent) + dragPercent;
 
   return (
-    <div className="mt-10 lg:mt-16">
+    <div className="mt-10 lg:mt-14">
       <div className="relative">
-        <div className="overflow-hidden" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
+        <div
+          ref={trackRef}
+          className="cursor-grab overflow-hidden active:cursor-grabbing"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerUp}
+          onPointerCancel={handlePointerUp}
+        >
           <div
-            className="flex transition-transform duration-500 ease-out"
-            style={{ transform: `translateX(-${index * (100 / perView)}%)` }}
+            className={`flex ${isDragging ? "" : "transition-transform duration-500 ease-out"}`}
+            style={{ transform: `translateX(${translate}%)` }}
           >
             {products.map((product) => (
               <article
                 key={product.slug}
-                className="flex shrink-0 flex-col px-2 sm:px-2.5"
-                style={{ width: `${100 / perView}%` }}
+                className="flex shrink-0 snap-start flex-col px-2 sm:px-2.5"
+                style={{ width: `${slidePercent}%` }}
               >
-                <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-shadow duration-300 hover:shadow-lg">
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-gray-50">
+                <div className="group flex h-full flex-col overflow-hidden rounded-3xl border border-gray-100/80 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgb(15,61,46,0.12)]">
+                  <div className="relative h-[220px] w-full overflow-hidden bg-gray-50 md:h-[260px] lg:h-[300px]">
                     <Image
                       src={getProductImage(product.slug)}
                       alt={product.name}
                       fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                      className="object-cover"
+                      sizes="(max-width: 768px) 85vw, (max-width: 1024px) 33vw, 25vw"
+                      className="object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]"
+                      loading="lazy"
                     />
                     {product.exportGrade && (
-                      <span className="absolute right-3 top-3 rounded-full bg-sunaz-gold/90 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white">
+                      <span className="absolute right-3 top-3 rounded-full bg-sunaz-gold/90 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white shadow-sm">
                         Export
                       </span>
                     )}
                   </div>
-                  <div className="flex flex-1 flex-col p-4 lg:p-5">
+                  <div className="flex flex-1 flex-col p-5 lg:p-6">
                     <h3 className="font-display text-base font-semibold text-sunaz-green lg:text-lg">
                       {product.name}
                     </h3>
@@ -98,7 +138,7 @@ export default function ProductCarousel({ products, locale, learnMore }: Product
                     </p>
                     <Link
                       href={getProductPath(locale, product.slug)}
-                      className="mt-4 inline-flex items-center justify-center rounded-full border border-sunaz-green/20 bg-sunaz-green/5 px-5 py-2.5 text-xs font-semibold text-sunaz-green transition-all hover:border-sunaz-green hover:bg-sunaz-green hover:text-white lg:text-sm"
+                      className="mt-5 inline-flex items-center justify-center rounded-full border border-sunaz-green/15 bg-sunaz-green/5 px-5 py-2.5 text-xs font-semibold text-sunaz-green transition-all duration-300 hover:border-sunaz-green hover:bg-sunaz-green hover:text-white hover:shadow-md lg:text-sm"
                     >
                       {learnMore}
                     </Link>
@@ -115,7 +155,7 @@ export default function ProductCarousel({ products, locale, learnMore }: Product
               type="button"
               onClick={() => goTo(index - 1)}
               disabled={index === 0}
-              className="absolute -left-1 top-[38%] z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-gray-200 bg-white/95 text-sunaz-green shadow-lg backdrop-blur-sm transition-all hover:scale-105 disabled:pointer-events-none disabled:opacity-30 sm:-left-4 lg:h-11 lg:w-11"
+              className="absolute -left-2 top-[38%] z-10 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-gray-200 bg-white/95 text-sunaz-green shadow-lg backdrop-blur-sm transition-all duration-300 hover:scale-105 disabled:pointer-events-none disabled:opacity-30 lg:flex"
               aria-label="Previous products"
             >
               <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -126,7 +166,7 @@ export default function ProductCarousel({ products, locale, learnMore }: Product
               type="button"
               onClick={() => goTo(index + 1)}
               disabled={index >= maxIndex}
-              className="absolute -right-1 top-[38%] z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-gray-200 bg-white/95 text-sunaz-green shadow-lg backdrop-blur-sm transition-all hover:scale-105 disabled:pointer-events-none disabled:opacity-30 sm:-right-4 lg:h-11 lg:w-11"
+              className="absolute -right-2 top-[38%] z-10 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-gray-200 bg-white/95 text-sunaz-green shadow-lg backdrop-blur-sm transition-all duration-300 hover:scale-105 disabled:pointer-events-none disabled:opacity-30 lg:flex"
               aria-label="Next products"
             >
               <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -138,7 +178,7 @@ export default function ProductCarousel({ products, locale, learnMore }: Product
       </div>
 
       {pageCount > 1 && (
-        <div className="mt-6 flex justify-center gap-2">
+        <div className="mt-6 flex justify-center gap-2 lg:hidden">
           {Array.from({ length: pageCount }, (_, i) => (
             <button
               key={i}

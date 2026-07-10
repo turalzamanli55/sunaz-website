@@ -95,12 +95,11 @@ export const dictionary: Dictionary = {
   },
   products: {
     eyebrow: "Məhsullar",
-    title: "Premium İxrac Səviyyəli Məhsul Çeşidliliyi",
-    subtitle:
-      "Topdan satış, pərakəndə satış və beynəlxalq ixrac bazarları üçün hazırlanmış geniş quş əti portfeli.",
+    title: "Məhsul Çeşidləri",
+    subtitle: "SUNAZ tərəfindən istehsal olunan premium quş əti məhsulları.",
     viewAll: "Ətraflı",
     viewAllProducts: "Bütün Məhsullara Bax",
-    moreDetails: "Ətraflı",
+    moreDetails: "Ətraflı Bax",
     items: [
       { slug: "whole-chicken", name: "Bütöv Toyuq", description: "Daxili topdan və pərakəndə bazarlar üçün standart bütöv toyuq." },
       { slug: "premium-whole-chicken", name: "Premium Bütöv Toyuq", description: "Üstün ət keyfiyyəti və təqdimatı olan premium bütöv toyuq." },

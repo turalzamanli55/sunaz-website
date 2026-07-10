@@ -18,6 +18,34 @@ export const FACILITY_IMAGES = {
   ],
 } as const;
 
+/**
+ * Maps product slugs → real photography in public/placeholders/products/.
+ * Replace files in that folder only; keep filenames stable so no code changes are needed.
+ * Unmapped slugs fall back to a generic product image.
+ */
+const PRODUCT_IMAGE_FILES: Record<string, string> = {
+  "whole-chicken": "soyudulmus-toyuq.PNG",
+  "premium-whole-chicken": "dondurulmus-toyuq.PNG",
+  "fast-cooking-chicken": "toyuq-sorbaliq.PNG",
+  "slow-growing-chicken": "gecbisen-soyudulmus.PNG",
+  "chicken-fillet": "toyuq-filesi.PNG",
+  "chicken-breast": "toyuq-filesi.PNG",
+  drumsticks: "toyuq-buddibi.PNG",
+  thighs: "toyuq-budu.PNG",
+  wings: "toyuq-qanadlari.PNG",
+  "mid-joint-wings": "toyuq-qanaduclari.PNG",
+  "three-joint-wings": "toyuq-qanadlari.PNG",
+  "chicken-feet": "Toyuq-ayaqlari.PNG",
+  "chicken-paws": "toyuq-petenekleri.PNG",
+  liver: "toyuq-ciyeri.PNG",
+  heart: "toyuq-urekleri.PNG",
+  gizzard: "soyudulmus-toyuq.PNG",
+  "export-products": "dondurulmus-toyuq.PNG",
+};
+
+const PRODUCT_IMAGE_FALLBACK = "soyudulmus-toyuq.PNG";
+
 export function getProductImage(slug: string): string {
-  return `/placeholders/products/${slug}.jpg`;
+  const file = PRODUCT_IMAGE_FILES[slug] ?? PRODUCT_IMAGE_FALLBACK;
+  return `/placeholders/products/${file}`;
 }

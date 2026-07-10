@@ -95,12 +95,11 @@ export const dictionary: Dictionary = {
   },
   products: {
     eyebrow: "Ürünler",
-    title: "Premium İhracat Kalitesinde Ürün Yelpazesi",
-    subtitle:
-      "Toptan, perakende ve uluslararası ihracat pazarları için tasarlanmış kapsamlı kümes hayvanı portföyü.",
+    title: "Ürün Çeşitleri",
+    subtitle: "SUNAZ tarafından üretilen premium kümes hayvanı ürünleri.",
     viewAll: "İncele",
     viewAllProducts: "Tüm Ürünler",
-    moreDetails: "Detaylar",
+    moreDetails: "İncele",
     items: [
       { slug: "whole-chicken", name: "Bütün Tavuk", description: "Yerel toptan ve perakende dağıtım için standart bütün tavuk." },
       { slug: "premium-whole-chicken", name: "Premium Bütün Tavuk", description: "Üstün et kalitesi ve sunum ile premium bütün tavuk." },

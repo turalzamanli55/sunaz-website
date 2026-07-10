@@ -94,8 +94,8 @@ export const dictionary: Dictionary = {
   },
   products: {
     eyebrow: "产品",
-    title: "优质出口级产品系列",
-    subtitle: "面向批发、零售及国际出口市场的全面禽肉产品组合。",
+    title: "产品系列",
+    subtitle: "SUNAZ 生产的优质禽肉产品。",
     viewAll: "了解更多",
     viewAllProducts: "查看所有产品",
     moreDetails: "了解更多",

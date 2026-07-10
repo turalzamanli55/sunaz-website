@@ -95,9 +95,8 @@ export const dictionary: Dictionary = {
   },
   products: {
     eyebrow: "Products",
-    title: "Premium Export-Grade Product Range",
-    subtitle:
-      "Comprehensive poultry portfolio engineered for wholesale, retail and international export markets.",
+    title: "Product Range",
+    subtitle: "Premium poultry products manufactured by SUNAZ.",
     viewAll: "Explore",
     viewAllProducts: "View All Products",
     moreDetails: "Learn More",
