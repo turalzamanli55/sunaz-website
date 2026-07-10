@@ -5,6 +5,13 @@ export const HERO_IMAGES = [
   "/placeholders/hero/hero-4.jpg",
 ] as const;
 
+/**
+ * Hero media — replace files in public/placeholders/hero/ only.
+ * Keep these path constants; no component changes needed when swapping assets.
+ */
+export const HERO_VIDEO = "/placeholders/hero/hero-video.mp4";
+export const HERO_VIDEO_POSTER = "/placeholders/hero/hero-poster.jpg";
+
 export const FACILITY_IMAGES = {
   baku: [
     "/placeholders/facilities/baku-1.jpg",

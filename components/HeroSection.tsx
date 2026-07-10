@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Locale } from "@/lib/i18n/config";
-import { HERO_IMAGES } from "@/lib/placeholders/assets";
+import { HERO_VIDEO, HERO_VIDEO_POSTER } from "@/lib/placeholders/assets";
 import type { Dictionary } from "@/types/dictionary";
 
 interface HeroSectionProps {
@@ -13,103 +13,81 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ locale, dict }: HeroSectionProps) {
-  const [index, setIndex] = useState(0);
-  const touchStartX = useRef<number | null>(null);
-  const total = HERO_IMAGES.length;
-
-  const goTo = useCallback((next: number) => {
-    setIndex(((next % total) + total) % total);
-  }, [total]);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoReady, setVideoReady] = useState(false);
+  const [canPlayVideo, setCanPlayVideo] = useState(true);
+  const [preferReducedMotion, setPreferReducedMotion] = useState(false);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((i) => (i + 1) % total);
-    }, 5500);
-    return () => clearInterval(timer);
-  }, [total]);
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setPreferReducedMotion(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
 
-  function handleTouchStart(e: React.TouchEvent) {
-    touchStartX.current = e.touches[0].clientX;
-  }
+  useEffect(() => {
+    if (preferReducedMotion || !canPlayVideo) return;
+    const video = videoRef.current;
+    if (!video) return;
 
-  function handleTouchEnd(e: React.TouchEvent) {
-    if (touchStartX.current === null) return;
-    const diff = touchStartX.current - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 40) {
-      goTo(diff > 0 ? index + 1 : index - 1);
-    }
-    touchStartX.current = null;
-  }
+    const play = async () => {
+      try {
+        video.muted = true;
+        await video.play();
+      } catch {
+        setCanPlayVideo(false);
+      }
+    };
+
+    void play();
+  }, [preferReducedMotion, canPlayVideo]);
+
+  const showVideo = canPlayVideo && !preferReducedMotion;
 
   return (
     <section id="home" className="overflow-hidden bg-gradient-to-b from-gray-50/80 to-white pt-14 lg:pt-[4.25rem]">
       <div className="mx-auto max-w-7xl px-5 py-10 lg:px-8 lg:py-20">
         <div className="flex flex-col gap-10 lg:grid lg:grid-cols-5 lg:items-center lg:gap-14">
-          {/* Carousel first on mobile */}
+          {/* Video first on mobile */}
           <div className="order-1 lg:order-2 lg:col-span-2">
-            <div
-              className="relative overflow-hidden rounded-3xl border border-black/[0.06] bg-white shadow-2xl shadow-sunaz-green/10"
-              onTouchStart={handleTouchStart}
-              onTouchEnd={handleTouchEnd}
-            >
-              <div className="relative aspect-[4/5] w-full sm:aspect-[3/4] lg:aspect-[4/5]">
-                {HERO_IMAGES.map((src, i) => (
-                  <div
-                    key={src}
-                    className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
-                      i === index ? "opacity-100" : "pointer-events-none opacity-0"
+            <div className="relative overflow-hidden rounded-[32px] border border-sunaz-gold/25 bg-white shadow-2xl shadow-sunaz-green/10">
+              <div className="relative aspect-video w-full lg:aspect-[4/5]">
+                <Image
+                  src={HERO_VIDEO_POSTER}
+                  alt=""
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className={`object-cover transition-opacity duration-300 ${
+                    showVideo && videoReady ? "opacity-0" : "opacity-100"
+                  }`}
+                />
+
+                {showVideo && (
+                  <video
+                    ref={videoRef}
+                    className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-300 ${
+                      videoReady ? "opacity-100" : "opacity-0"
                     }`}
-                  >
-                    <Image
-                      src={src}
-                      alt=""
-                      fill
-                      priority={i === 0}
-                      sizes="(max-width: 1024px) 100vw, 40vw"
-                      className="object-cover"
-                    />
-                  </div>
-                ))}
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
-              </div>
+                    src={HERO_VIDEO}
+                    poster={HERO_VIDEO_POSTER}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                    controls={false}
+                    disablePictureInPicture
+                    disableRemotePlayback
+                    onLoadedData={() => setVideoReady(true)}
+                    onCanPlay={() => setVideoReady(true)}
+                    onError={() => setCanPlayVideo(false)}
+                    aria-hidden="true"
+                  />
+                )}
 
-              <div className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-3 bg-gradient-to-t from-black/50 to-transparent px-4 pb-4 pt-12">
-                <button
-                  type="button"
-                  onClick={() => goTo(index - 1)}
-                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/90 text-sunaz-green shadow-lg backdrop-blur-md transition-all hover:scale-105 hover:bg-white"
-                  aria-label="Previous slide"
-                >
-                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-                  </svg>
-                </button>
-
-                <div className="flex flex-1 justify-center gap-2">
-                  {HERO_IMAGES.map((src, i) => (
-                    <button
-                      key={src}
-                      type="button"
-                      onClick={() => goTo(i)}
-                      className={`rounded-full transition-all duration-300 ${
-                        i === index ? "h-2 w-8 bg-sunaz-gold" : "h-2 w-2 bg-white/60 hover:bg-white/80"
-                      }`}
-                      aria-label={`Slide ${i + 1}`}
-                      aria-current={i === index ? "true" : undefined}
-                    />
-                  ))}
-                </div>
-
-                <button
-                  type="button"
-                  onClick={() => goTo(index + 1)}
-                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/90 text-sunaz-green shadow-lg backdrop-blur-md transition-all hover:scale-105 hover:bg-white"
-                  aria-label="Next slide"
-                >
-                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                  </svg>
-                </button>
+                <div className="pointer-events-none absolute inset-0 bg-black/[0.08]" />
               </div>
             </div>
           </div>
