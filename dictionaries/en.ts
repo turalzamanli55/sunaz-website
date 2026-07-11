@@ -342,7 +342,7 @@ export const dictionary: Dictionary = {
       trustTitle: "Compliance & Trust Indicators",
       trustBadges: [
         "Halal Production",
-        "AQTA Compliance",
+        "AQTA Registry Extract",
         "Veterinary Approved",
         "Export Ready",
         "Food Safety Standards",
@@ -385,9 +385,9 @@ export const dictionary: Dictionary = {
         },
         {
           id: "aqta",
-          title: "AQTA Compliance",
+          title: "AQTA Registry Extract",
           description:
-            "Compliance with food safety and regulatory requirements established by the Food Safety Agency of Azerbaijan.",
+            "Official Food Safety Registry Extract issued by the Food Safety Agency of the Republic of Azerbaijan (AQTA). The document confirms that the enterprise's food facility is registered in the state registry and operates officially.",
         },
         {
           id: "veterinary",

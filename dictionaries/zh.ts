@@ -311,7 +311,7 @@ export const dictionary: Dictionary = {
       trustTitle: "合规与信任指标",
       trustBadges: [
         "清真生产",
-        "AQTA合规",
+        "AQTA登记摘录",
         "兽医批准",
         "出口就绪",
         "食品安全标准",
@@ -336,7 +336,7 @@ export const dictionary: Dictionary = {
       },
       items: [
         { id: "halal", title: "清真认证", description: "清真禽肉加工与屠宰标准。" },
-        { id: "aqta", title: "AQTA合规", description: "符合阿塞拜疆食品安全局制定的食品安全及监管要求。" },
+        { id: "aqta", title: "AQTA登记摘录", description: "由阿塞拜疆共和国食品安全局（AQTA）签发的官方食品安全登记摘录。该文件确认企业的食品场所已在国家登记册中注册并正式运营。" },
         { id: "veterinary", title: "兽医认证", description: "禽肉产品的兽医检验及健康认证。" },
         { id: "export", title: "出口合规", description: "出口文件及国际贸易要求。" },
         { id: "quality", title: "质量保证", description: "质量管理、食品安全及运营控制系统。" },

@@ -319,7 +319,7 @@ export const dictionary: Dictionary = {
       trustTitle: "Uygunluk ve Güven Göstergeleri",
       trustBadges: [
         "Helal Üretim",
-        "AQTA Uygunluğu",
+        "AQTA Sicil Çıkarışı",
         "Veteriner Onaylı",
         "İhracata Hazır",
         "Gıda Güvenliği Standartları",
@@ -344,7 +344,7 @@ export const dictionary: Dictionary = {
       },
       items: [
         { id: "halal", title: "Helal Sertifikası", description: "Helal kümes hayvanı işleme ve kesim standartları." },
-        { id: "aqta", title: "AQTA Uygunluğu", description: "Azerbaycan Gıda Güvenliği Ajansı tarafından belirlenen gıda güvenliği ve düzenleyici gereksinimlere uygunluk." },
+        { id: "aqta", title: "AQTA Sicil Çıkarışı", description: "Azerbaycan Cumhuriyeti Gıda Güvenliği Ajansı (AQTA) tarafından verilen resmi Gıda Güvenliği Sicil Çıkarışı. Belge, işletmenin gıda tesisinin devlet siciline kayıtlı olduğunu ve resmi faaliyet gösterdiğini teyit eder." },
         { id: "veterinary", title: "Veteriner Sertifikası", description: "Kümes hayvanı ürünleri için veteriner muayenesi ve sağlık sertifikası." },
         { id: "export", title: "İhracat Uygunluğu", description: "İhracat belgeleri ve uluslararası ticaret gereksinimleri." },
         { id: "quality", title: "Kalite Güvencesi", description: "Kalite yönetimi, gıda güvenliği ve operasyonel kontrol sistemleri." },
