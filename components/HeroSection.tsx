@@ -80,7 +80,7 @@ export default function HeroSection({ locale, dict }: HeroSectionProps) {
               {dict.hero.ctaProducts}
             </a>
             <a
-              href={`/${locale}/#about`}
+              href={`/${locale}/about`}
               className="inline-flex items-center justify-center rounded-full border border-sunaz-green/15 bg-white px-7 py-3.5 text-sm font-semibold text-sunaz-green transition-all hover:border-sunaz-green/30 hover:bg-sunaz-green/5"
             >
               {dict.hero.ctaAbout}
