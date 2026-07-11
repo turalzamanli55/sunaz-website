@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { Locale } from "@/lib/i18n/config";
@@ -59,9 +60,17 @@ export default function Header({ locale, dict }: HeaderProps) {
         <div className="relative mx-auto flex h-14 max-w-7xl items-center justify-between px-5 lg:h-[4.25rem] lg:px-8">
           <Link
             href={`/${locale}`}
-            className="relative z-10 shrink-0 font-display text-xl font-semibold tracking-tight text-sunaz-green transition-opacity hover:opacity-80 lg:text-2xl"
+            className="relative z-10 shrink-0 transition-opacity hover:opacity-80"
+            aria-label="SUNAZ"
           >
-            SUNAZ
+            <Image
+              src="/logo.PNG"
+              alt="SUNAZ"
+              width={1536}
+              height={1024}
+              priority
+              className="h-[36px] w-auto object-contain lg:h-[45px]"
+            />
           </Link>
 
           <nav
@@ -129,7 +138,13 @@ export default function Header({ locale, dict }: HeaderProps) {
           aria-label="Mobile navigation"
         >
           <div className="flex h-14 items-center justify-between border-b border-black/[0.06] px-5">
-            <span className="font-display text-lg font-semibold text-sunaz-green">SUNAZ</span>
+            <Image
+              src="/logo.PNG"
+              alt="SUNAZ"
+              width={1536}
+              height={1024}
+              className="h-[36px] w-auto object-contain"
+            />
             <button
               type="button"
               onClick={() => setMenuOpen(false)}

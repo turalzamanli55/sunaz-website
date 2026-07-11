@@ -36,7 +36,7 @@ export function buildOrganizationSchema(locale: Locale, dict: Dictionary) {
     name: COMPANY.legalName,
     alternateName: "SUNAZ",
     url: `${base}/${locale}`,
-    logo: `${base}/logo.png`,
+    logo: `${base}/logo.PNG`,
     description: dict.meta.description,
     foundingDate: String(COMPANY.founded),
     email: COMPANY.email,
