@@ -88,6 +88,64 @@ export const dictionary: Dictionary = {
       "Chicken liver",
       "Chicken hearts",
     ],
+    page: {
+      meta: {
+        title: "About Us | SUNAZ Group LLC",
+        description:
+          "SUNAZ Group LLC — modern poultry processing and production in Azerbaijan, delivering high-quality products for domestic and international markets.",
+      },
+      title: "About Us",
+      introduction: [
+        "SUNAZ Group LLC is a company operating in modern poultry processing and production in Azerbaijan, delivering high-quality products that meet domestic market and international export requirements.",
+        "Since 2020, our company has operated as a reliable supplier for both local and international partners through modern production infrastructure, processing aligned with international quality standards, and a professional team.",
+        "Every stage of our production process — from raw material intake to processing, packaging, cold-chain logistics and shipment — is managed to protect product safety, traceability and quality.",
+        "SUNAZ products are prepared for wholesale, retail, the HoReCa sector and international distributors. The company prioritizes long-term cooperation by offering tailored product solutions that meet the technical and packaging requirements of different markets.",
+        "Our goal is not only to manufacture products, but to build a continuous, reliable and transparent supply system for our partners.",
+      ],
+      mission: {
+        title: "Mission",
+        content:
+          "To contribute to the sustainable development of our partners by producing safe, high-quality and reliable poultry products for domestic and international markets.",
+      },
+      vision: {
+        title: "Vision",
+        content:
+          "To become one of the most trusted and recognized poultry producers in the region, representing Azerbaijani production on international markets as a benchmark of quality and reliability.",
+      },
+      why: {
+        title: "Why SUNAZ",
+        items: [
+          {
+            title: "Modern production infrastructure",
+            description: "Advanced processing and production facilities supporting consistent, high-capacity operations.",
+          },
+          {
+            title: "International quality standards",
+            description: "Processes aligned with global food safety and quality requirements.",
+          },
+          {
+            title: "Halal production",
+            description: "Certified halal production meeting international religious and quality norms.",
+          },
+          {
+            title: "Cold-chain logistics",
+            description: "Temperature-controlled logistics that protect product integrity from processing to shipment.",
+          },
+          {
+            title: "Export-ready packaging",
+            description: "Packaging solutions tailored to international market technical requirements.",
+          },
+          {
+            title: "Reliable supply",
+            description: "Stable and predictable supply capacity for dependable partner relationships.",
+          },
+          {
+            title: "Long-term partnerships",
+            description: "A preference for transparent cooperation and lasting business relationships.",
+          },
+        ],
+      },
+    },
   },
   products: {
     eyebrow: "Products",

@@ -88,6 +88,64 @@ export const dictionary: Dictionary = {
       "Tavuk ciğeri",
       "Tavuk yürekleri",
     ],
+    page: {
+      meta: {
+        title: "Hakkımızda | SUNAZ Group LLC",
+        description:
+          "SUNAZ Group LLC — Azerbaycan'da modern kümes hayvanı işleme ve üretimi; iç pazar ve uluslararası ihracat için yüksek kaliteli ürünler.",
+      },
+      title: "Hakkımızda",
+      introduction: [
+        "SUNAZ Group LLC, Azerbaycan'da modern kümes hayvanı işleme ve üretimi alanında faaliyet gösteren; iç pazar ve uluslararası ihracat gereksinimlerine uygun yüksek kaliteli ürünler sunan bir şirkettir.",
+        "2020'den bu yana faaliyet gösteren şirketimiz, modern üretim altyapısı, uluslararası kalite standartlarına uygun işleme süreçleri ve profesyonel ekibiyle hem yerel hem de yabancı ortaklar için güvenilir bir tedarikçi olarak çalışmaktadır.",
+        "Üretim sürecimizin her aşaması — hammaddenin kabulünden işleme, paketleme, soğuk zincir lojistiği ve sevkiyata kadar — ürün güvenliğini, izlenebilirliğini ve kalitesini koruma ilkesiyle yönetilir.",
+        "SUNAZ ürünleri toptan satış, perakende, HoReCa sektörü ve uluslararası distribütörler için hazırlanır. Şirket, farklı pazarların teknik ve paketleme gereksinimlerine uygun özel ürün çözümleri sunarak uzun vadeli iş birliğine öncelik verir.",
+        "Amacımız yalnızca ürün üretmek değil; ortaklarımız için sürekli, güvenilir ve şeffaf bir tedarik sistemi kurmaktır.",
+      ],
+      mission: {
+        title: "Misyon",
+        content:
+          "İç ve uluslararası pazarlar için güvenli, yüksek kaliteli ve güvenilir kümes hayvanı ürünleri üreterek ortaklarımızın sürdürülebilir gelişimine katkıda bulunmak.",
+      },
+      vision: {
+        title: "Vizyon",
+        content:
+          "Bölgenin en güvenilir ve tanınan kümes hayvanı üreticilerinden biri olmak; uluslararası pazarlarda Azerbaycan üretimini yüksek kalite ve güvenilirlik örneği olarak temsil etmek.",
+      },
+      why: {
+        title: "Neden SUNAZ",
+        items: [
+          {
+            title: "Modern üretim altyapısı",
+            description: "Tutarlı ve yüksek kapasiteli operasyonları destekleyen modern işleme ve üretim tesisleri.",
+          },
+          {
+            title: "Uluslararası kalite standartları",
+            description: "Küresel gıda güvenliği ve kalite gereksinimlerine uyumlu süreçler.",
+          },
+          {
+            title: "Helal üretim",
+            description: "Uluslararası dini ve kalite normlarına uygun sertifikalı helal üretim.",
+          },
+          {
+            title: "Soğuk zincir lojistiği",
+            description: "İşlemeden sevkiyata kadar ürün bütünlüğünü koruyan soğuk zincir.",
+          },
+          {
+            title: "İhracata hazır paketleme",
+            description: "Uluslararası pazarların teknik gereksinimlerine uygun paketleme çözümleri.",
+          },
+          {
+            title: "Güvenilir tedarik",
+            description: "Güvenilir ortaklıklar için istikrarlı ve öngörülebilir tedarik kapasitesi.",
+          },
+          {
+            title: "Uzun vadeli ortaklıklar",
+            description: "Şeffaf iş birliği ve kalıcı iş ilişkilerine öncelik.",
+          },
+        ],
+      },
+    },
   },
   products: {
     eyebrow: "Ürünler",

@@ -88,6 +88,64 @@ export const dictionary: Dictionary = {
       "Toyuq çiyəri",
       "Toyuq ürəkləri",
     ],
+    page: {
+      meta: {
+        title: "Haqqımızda | SUNAZ Group LLC",
+        description:
+          "SUNAZ Group LLC — Azərbaycanda müasir quş əti emalı və istehsalı, daxili bazar və beynəlxalq ixrac üçün yüksək keyfiyyətli məhsullar.",
+      },
+      title: "Haqqımızda",
+      introduction: [
+        "SUNAZ Group LLC Azərbaycanda müasir quş əti emalı və istehsalı sahəsində fəaliyyət göstərən, daxili bazar və beynəlxalq ixrac tələblərinə uyğun yüksək keyfiyyətli məhsullar təqdim edən şirkətdir.",
+        "2020-ci ildən etibarən fəaliyyət göstərən şirkətimiz müasir istehsal infrastrukturu, beynəlxalq keyfiyyət standartlarına uyğun emal prosesləri və peşəkar komanda ilə həm yerli, həm də xarici tərəfdaşlar üçün etibarlı təchizatçı kimi fəaliyyət göstərir.",
+        "İstehsal prosesimizin hər mərhələsi – xammalın qəbulundan emal, qablaşdırma, soyuq zəncir logistikası və göndərişə qədər – məhsulun təhlükəsizliyini, izlənəbilənliyini və keyfiyyətini qorumaq prinsipi əsasında idarə olunur.",
+        "SUNAZ məhsulları topdansatış, pərakəndə satış, HoReCa sektoru və beynəlxalq distribütorlar üçün hazırlanır. Şirkət müxtəlif bazarların texniki və qablaşdırma tələblərinə uyğun fərdi məhsul həlləri təqdim edərək uzunmüddətli əməkdaşlığa üstünlük verir.",
+        "Məqsədimiz yalnız məhsul istehsal etmək deyil, tərəfdaşlarımız üçün davamlı, etibarlı və şəffaf təchizat sistemi qurmaqdır.",
+      ],
+      mission: {
+        title: "Missiya",
+        content:
+          "Daxili və beynəlxalq bazarlar üçün təhlükəsiz, yüksək keyfiyyətli və etibarlı quş əti məhsulları istehsal edərək tərəfdaşlarımızın davamlı inkişafına töhfə vermək.",
+      },
+      vision: {
+        title: "Vizyon",
+        content:
+          "Regionun ən etibarlı və tanınan quş əti istehsalçılarından biri olmaq, beynəlxalq bazarlarda Azərbaycan istehsalını yüksək keyfiyyət və etibarlılıq nümunəsi kimi təmsil etmək.",
+      },
+      why: {
+        title: "Niyə SUNAZ",
+        items: [
+          {
+            title: "Müasir istehsal infrastrukturu",
+            description: "Müasir emal və istehsal obyektləri ilə davamlı, yüksək tutumlu əməliyyatlar.",
+          },
+          {
+            title: "Beynəlxalq keyfiyyət standartları",
+            description: "Qlobal ərzaq təhlükəsizliyi və keyfiyyət tələblərinə uyğun proseslər.",
+          },
+          {
+            title: "Halal istehsal",
+            description: "Beynəlxalq dini və keyfiyyət normalarına uyğun sertifikatlaşdırılmış halal istehsal.",
+          },
+          {
+            title: "Soyuq zəncir logistikası",
+            description: "Emaldan göndərişə qədər məhsul bütövlüyünü qoruyan soyuq zəncir.",
+          },
+          {
+            title: "İxraca hazır qablaşdırma",
+            description: "Beynəlxalq bazarların texniki və qablaşdırma tələblərinə uyğun həllər.",
+          },
+          {
+            title: "Etibarlı təchizat",
+            description: "Stabillik və proqnozlaşdırıla bilən təchizat həcmi ilə etibarlı tərəfdaşlıq.",
+          },
+          {
+            title: "Uzunmüddətli tərəfdaşlıqlar",
+            description: "Şəffaf əməkdaşlıq və davamlı biznes münasibətlərinə üstünlük.",
+          },
+        ],
+      },
+    },
   },
   products: {
     eyebrow: "Məhsullar",

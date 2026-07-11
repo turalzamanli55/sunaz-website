@@ -8,7 +8,7 @@ export interface NavLink {
 
 export function getPrimaryNavLinks(locale: Locale, dict: Dictionary): NavLink[] {
   return [
-    { label: dict.nav.about, href: `/${locale}/#about` },
+    { label: dict.nav.about, href: `/${locale}/about` },
     { label: dict.nav.products, href: `/${locale}/#products` },
     { label: dict.nav.export, href: `/${locale}/#export` },
     { label: dict.nav.facilities, href: `/${locale}/#facilities` },

@@ -63,6 +63,17 @@ export interface Dictionary {
     facilities: Array<{ name: string; details: string[] }>;
     productsTitle: string;
     productList: string[];
+    page: {
+      meta: { title: string; description: string };
+      title: string;
+      introduction: string[];
+      mission: { title: string; content: string };
+      vision: { title: string; content: string };
+      why: {
+        title: string;
+        items: Array<{ title: string; description: string }>;
+      };
+    };
   };
   products: {
     eyebrow: string;
