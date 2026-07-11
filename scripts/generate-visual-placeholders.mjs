@@ -7,10 +7,9 @@ const root = path.join(__dirname, "..");
 const publicDir = path.join(root, "public", "placeholders");
 
 const PRODUCT_SLUGS = [
-  "whole-chicken", "premium-whole-chicken", "fast-cooking-chicken", "slow-growing-chicken",
-  "chicken-fillet", "chicken-breast", "drumsticks", "thighs", "wings",
-  "mid-joint-wings", "three-joint-wings", "chicken-feet", "chicken-paws",
-  "liver", "heart", "gizzard", "export-products",
+  "whole-chicken", "premium-whole-chicken", "slow-growing-chicken", "slow-cooking-frozen-chicken",
+  "fast-cooking-chicken", "chicken-fillet", "drumsticks", "thighs", "wings",
+  "mid-joint-wings", "chicken-feet", "chicken-paws", "liver", "heart",
 ];
 
 function createPlaceholderSvg(title, subtitle, width, height, accent) {

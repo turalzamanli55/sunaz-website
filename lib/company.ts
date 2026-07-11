@@ -34,21 +34,18 @@ export const COMPANY = {
 export const PRODUCT_SLUGS = [
   "whole-chicken",
   "premium-whole-chicken",
-  "fast-cooking-chicken",
   "slow-growing-chicken",
+  "slow-cooking-frozen-chicken",
+  "fast-cooking-chicken",
   "chicken-fillet",
-  "chicken-breast",
   "drumsticks",
   "thighs",
   "wings",
   "mid-joint-wings",
-  "three-joint-wings",
   "chicken-feet",
   "chicken-paws",
   "liver",
   "heart",
-  "gizzard",
-  "export-products",
 ] as const;
 
 export type ProductSlug = (typeof PRODUCT_SLUGS)[number];
@@ -56,18 +53,23 @@ export type ProductSlug = (typeof PRODUCT_SLUGS)[number];
 export const FEATURED_PRODUCT_SLUGS: ProductSlug[] = [
   "whole-chicken",
   "premium-whole-chicken",
-  "chicken-breast",
+  "slow-growing-chicken",
+  "slow-cooking-frozen-chicken",
+  "fast-cooking-chicken",
   "chicken-fillet",
   "drumsticks",
+  "thighs",
+  "wings",
+  "mid-joint-wings",
   "chicken-feet",
   "chicken-paws",
-  "export-products",
+  "liver",
+  "heart",
 ];
 
 export const EXPORT_PRODUCT_SLUGS: ProductSlug[] = [
   "chicken-feet",
   "chicken-paws",
-  "three-joint-wings",
   "mid-joint-wings",
-  "export-products",
+  "wings",
 ];

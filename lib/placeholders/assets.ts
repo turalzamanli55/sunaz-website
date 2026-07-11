@@ -32,21 +32,18 @@ export const FACILITY_IMAGES = {
 const PRODUCT_IMAGE_FILES: Record<string, string> = {
   "whole-chicken": "soyudulmus-toyuq.PNG",
   "premium-whole-chicken": "dondurulmus-toyuq.PNG",
-  "fast-cooking-chicken": "toyuq-sorbaliq.PNG",
   "slow-growing-chicken": "gecbisen-soyudulmus.PNG",
+  "slow-cooking-frozen-chicken": "gecbisen-dondurulmus.PNG",
+  "fast-cooking-chicken": "toyuq-sorbaliq.PNG",
   "chicken-fillet": "toyuq-filesi.PNG",
-  "chicken-breast": "toyuq-filesi.PNG",
   drumsticks: "toyuq-buddibi.PNG",
   thighs: "toyuq-budu.PNG",
   wings: "toyuq-qanadlari.PNG",
   "mid-joint-wings": "toyuq-qanaduclari.PNG",
-  "three-joint-wings": "toyuq-qanadlari.PNG",
   "chicken-feet": "Toyuq-ayaqlari.PNG",
   "chicken-paws": "toyuq-petenekleri.PNG",
   liver: "toyuq-ciyeri.PNG",
   heart: "toyuq-urekleri.PNG",
-  gizzard: "soyudulmus-toyuq.PNG",
-  "export-products": "dondurulmus-toyuq.PNG",
 };
 
 const PRODUCT_IMAGE_FALLBACK = "soyudulmus-toyuq.PNG";
