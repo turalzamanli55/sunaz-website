@@ -21,7 +21,7 @@ export const CERTIFICATE_ASSETS: Record<
     pdf: "/certifications/halal-certificate.pdf",
   },
   aqta: {
-    image: "/certifications/images/aqta-compliance.jpg",
+    image: "/certifications/images/aqta-compliance.jpeg",
     pdf: "/certifications/aqta-compliance.pdf",
   },
   veterinary: {

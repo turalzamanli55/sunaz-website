@@ -387,7 +387,8 @@ export const dictionary: Dictionary = {
           id: "aqta",
           title: "AQTA Registry Extract",
           description:
-            "Official Food Safety Registry Extract issued by the Food Safety Agency of the Republic of Azerbaijan (AQTA). The document confirms that the enterprise's food facility is registered in the state registry and operates officially.",
+            "Official Food Safety Registry Extract issued by the Food Safety Agency of the Republic of Azerbaijan (AQTA).",
+          issueDateValue: "June 2026",
         },
         {
           id: "veterinary",

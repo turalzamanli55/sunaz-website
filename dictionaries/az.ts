@@ -344,7 +344,7 @@ export const dictionary: Dictionary = {
       },
       items: [
         { id: "halal", title: "Halal Sertifikatı", description: "Halal quş əti emalı və kəsim standartları." },
-        { id: "aqta", title: "AQTA Reyestr Çıxarışı", description: "Azərbaycan Respublikası Qida Təhlükəsizliyi Agentliyi (AQTA) tərəfindən verilmiş rəsmi Qida Təhlükəsizliyi Reyestr Çıxarışı. Sənəd müəssisənin qida obyektinin dövlət reyestrində qeydiyyatda olduğunu və rəsmi fəaliyyət göstərdiyini təsdiq edir." },
+        { id: "aqta", title: "AQTA Reyestr Çıxarışı", description: "Azərbaycan Respublikası Qida Təhlükəsizliyi Agentliyi (AQTA) tərəfindən verilmiş rəsmi Qida Təhlükəsizliyi Reyestr Çıxarışı.", issueDateValue: "İyun 2026" },
         { id: "veterinary", title: "Veterinar Sertifikatı", description: "Quş əti məhsulları üçün veterinariya yoxlaması və sağlamlıq sertifikatı." },
         { id: "export", title: "İxrac Uyğunluğu", description: "İxrac sənədləri və beynəlxalq ticarət tələbləri." },
         { id: "quality", title: "Keyfiyyət Təminatı", description: "Keyfiyyət idarəetməsi, ərzaq təhlükəsizliyi və əməliyyat nəzarəti sistemləri." },

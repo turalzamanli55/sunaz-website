@@ -46,17 +46,23 @@ export default function CertificateCard({
       </button>
 
       <div className="flex flex-1 flex-col p-6">
-        <h3 className="font-display text-lg font-semibold text-sunaz-green">
-          {item.title}
-        </h3>
-        <p className="mt-2 flex-1 text-sm leading-relaxed text-sunaz-muted">
-          {item.description}
-        </p>
+        <button
+          type="button"
+          onClick={() => onView(item.id)}
+          className="flex flex-1 flex-col text-left"
+        >
+          <h3 className="font-display text-lg font-semibold text-sunaz-green">
+            {item.title}
+          </h3>
+          <p className="mt-2 flex-1 text-sm leading-relaxed text-sunaz-muted">
+            {item.description}
+          </p>
+        </button>
         <p className="mt-4 text-xs text-sunaz-muted">
           <span className="font-semibold uppercase tracking-wider text-sunaz-gold">
             {cards.issueDate}
           </span>
-          <span className="ml-2">{cards.issueDateValue}</span>
+          <span className="ml-2">{item.issueDateValue ?? cards.issueDateValue}</span>
         </p>
         <div className="mt-5 flex flex-wrap gap-3">
           <button
